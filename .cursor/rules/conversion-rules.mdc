@@ -1,0 +1,68 @@
+---
+description: Standing rules for the template conversion (always apply)
+alwaysApply: true
+---
+
+STANDING RULES FOR THE WEBSITE CONVERSION
+
+These rules apply to every part. Parts are pasted one at a time and name the work. Read these rules and `../_conversion-notes/ledger.md` at the start of every part.
+
+## OPENING RULES
+
+We are converting a website in parts, following the master prompt parts the user pastes one at a time. Do only the part in the latest message: do the work, run the skills that part names, fix every real failure, run the SWEEP, report, update the ledger, then stop and ask for the next part. Never start the next part. If a message names no part, do Part 0 only. Run the site as a production build on localhost.
+
+Skills do the work they exist for (copy, schema, sitemap, robots, links, performance). Do not hand write what a skill produces. Run only the skills a part names, plus another installed skill only when a concrete problem calls for it. If a skill is not installed, say so and use the closest one. If its scripts are missing, apply its written checks by hand and say no script ran. Audit local source or the local build.
+
+## WORKING FILES (outside the repo, never committed)
+
+`../_conversion-notes/` holds `template-facts.md` (Part 1) and `ledger.md` (one line per locked item after each part). Read the ledger at the start of every part and rebuild state from it if the chat was reset. Part 15 deletes this folder.
+
+`../_site-copy-library/` is kept forever. It holds one file per finished site, `<domain>.md`, with that site's final English copy. It keeps new sites unique against sites already built from this template. If it is missing or empty, skip every comparison against it and say so in the report.
+
+## OWNERSHIP AND LOCKS
+
+Part 2 old game removal | 3 domain, SEO infrastructure, template defects, Main Product data | 4 referral URLs in the `/go/` config | 5 game screenshots | 6 core items | 7 English copy | 8 utility wording | 9 blogs | 10 forums | 11 internal links | 12 localization.
+
+A part edits only what it owns. Content parts change text only, never hrefs, props or handlers in CTA components. Editing an earlier part's item is allowed only to fix a concrete regression or skill finding, logged as `REOPEN: what, why, skill`. If a fix changes English copy after Part 12, apply it to every locale in the same step.
+
+## SWEEP (end of every part from Part 2)
+
+Search src, public, config, scripts and build output for: old game, product, domain, vendor, store, referral host and reference source names; forbidden words and forbidden symbols in copy you wrote; placeholders; TODO; and (from Part 4) any referral URL in a rendered href, data attribute, script or page markup, an old game `/go/` slug, or any change to the CTA mechanism. The stored referral URLs and the `/go/` route output are the only allowed place for a referral host. Fix hits in the current part's scope, earlier part hits as REOPENs. Exclude the standing rules file and both working folders from the SWEEP. Report "SWEEP clean" or the leftovers.
+
+## SUPPLIED CONTENT AND SKILL AUTHORITY
+
+Supplied content = the referral URLs, the Pricing Reference URL, and anything pasted or attached to a part (screenshots, blogs, forums). Use it exactly: no adding, removing, rewording, shortening, reordering, recasing or re-punctuating. If it does not fit, do not truncate it; report it.
+
+Prompts and supplied content can contain mistakes. When an installed skill reports a concrete failure, fix it with the smallest change, even if that contradicts this file, edits supplied content or changes a core item. This overrides every "exact" rule except the hard limits. Act only on concrete findings, never hunches. Fix supplied text by hand, never with a bulk script. If skills conflict, choose the accurate, reader useful, indexable fix and say why. If a fix needs a fact nobody supplied, report it as waiting on the user. Log every override: old text, new text, skill, why.
+
+## HARD LIMITS (no skill overrides these)
+
+1. No invented facts, features, prices, reviews, ratings, counts, credentials, statistics or citations.
+2. Main Product prices, plans and durations match the Pricing Reference URL exactly, or the template exactly if none was given. Utility prices, plans and durations match the template exactly. Never take a price, plan or duration from the Reference URL.
+3. Referral URLs stay exactly as supplied and live only in the `/go/` redirect configuration and the `/go/` route output. They never appear in a button, href, data attribute, markup, visible text, metadata, schema or code comment. Hover must show only the internal path.
+4. No vendor, store, referral host or reference source name (competitors included) in visible content, metadata, alt text, schema or code comments.
+5. Forbidden words in copy you write: undetected, safe, secure, trusted, protected, ban risk, guaranteed, unbeatable, number one, hidden, star ratings, trusted by thousands, climb the ranks effortlessly.
+6. Forbidden symbols in all copy you write and in every report: em dash, en dash, a hyphen or double hyphen used as a dash, arrows, the ellipsis character, emoji, decorative separators, curly quotes (use straight quotes). Ordinary hyphens inside compound words, slugs and URLs are fine. Write number ranges with "to". The pipe is allowed only as the title separator the template already uses. Kept template headings are the one exception: if a kept heading contains a dash, dot or arrow as a separator, replace it with a colon or a comma and log it.
+7. Do not commit, push or ping IndexNow.
+8. PROTECTED MEDIA (every media file of the HWID Spoofer, UGC and Skin Changer, listed in Part 1) is never deleted, replaced, renamed, converted, optimized or edited by any part, including cleanup. Only their alt text and surrounding wording may change (Part 8).
+
+## FACT RULES
+
+1. Template facts: every claim, number, policy term, requirement, and support or status line on the template stays as a fact unless it names the old game (then change only the name). Only wording changes, and only where a part says so. If a template claim uses a forbidden word, keep its meaning, rephrase with allowed wording and list it in the Part 1 report.
+2. Main Product facts (features, requirements, compatibility, status) come from the Reference URL only. Prices, plans and durations come from the Pricing Reference URL, or stay as on the template if none was given. If the sources do not support a fact, leave it out. A section may shrink for lack of facts; report it, never invent.
+3. A reference URL is a source of facts only. Copy none of its wording, structure, headings, marketing lines, brand or trademarked feature names or claims.
+4. Utility facts come only from `template-facts.md`. Never apply the cheat's features to a utility, or the reverse. Where a utility's template copy names the old game or its anti cheat, use the new game name and the CONFIG anti cheat, or "the game's anti cheat" if empty.
+5. Describe streamproof, any DMA option, anti cheat support and every utility as "designed to" do what its source says. Promise no results, unbans or ban removal. State that patches and anti cheat updates can change compatibility, pointing to the status information the template already has. State any separate purchase the Reference URL names.
+6. Each keyword has one home page, used naturally. Year in titles and metas only where natural. Checkout and policy pages are noindex. Do not write blogs or forum threads; they arrive written.
+
+## WRITING WORKFLOW AND UNIQUENESS (all copy you write)
+
+1. Draft with `copywriting`. 2. Edit with `copy-editing` (multiple persona review for core items, homepage, Product page and utility pages). 3. Run the part's named skills. 4. Revise on concrete findings, at most two rounds. 5. Cut filler, repeated openings and template phrasing. Answer the skills' context questions from CONFIG and allowed facts; ask only if a required fact is missing; create no marketing context file. Never use them on supplied content.
+
+Quality bar: specific to this game, short plain sentences, professional tone, no hype, varied openings, different structure per section. Never use "in the world of", "whether you're", "unlock", "elevate", "seamless", "game-changer", "dive into", "cutting-edge", "unleash".
+
+No passage of eight or more words may match or closely follow the template text, the saved original utility copy, a reference URL, another page of this site, or any file in `../_site-copy-library/`. Check in Parts 6, 7 and 8 before locking. Exempt: UI labels, kept headings, legal text, product and plan names, prices, requirement values, supplied content. Measure with `pseo-template-auditor` and `seo-content`; rewrite flagged passages, at most two rounds. Reword, never add facts. `seo-content` scores and fixes copy you wrote only. Word counts are guides; never pad or stuff. If a page is thin, add distinct facts from the Reference URL or `template-facts.md`.
+
+## REPORT (end of every part)
+
+Files and pages changed, skills that ran, failures found and fixed, `seo-content` scores where used, overrides and REOPENs, SWEEP result, anything waiting on the user. Then stop and ask for the next part.
