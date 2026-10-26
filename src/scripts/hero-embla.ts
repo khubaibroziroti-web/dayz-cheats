@@ -9,7 +9,7 @@ function setupSlider(root: HTMLElement) {
 
   let active = 0;
   let timer = 0;
-  let visible = false;
+  let visible = true;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const setActive = (index: number) => {
@@ -37,7 +37,7 @@ function setupSlider(root: HTMLElement) {
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
-    if (!reduceMotion && !document.hidden && visible) {
+    if (!document.hidden && visible) {
       timer = window.setInterval(() => show(active + 1), AUTOPLAY_MS);
     }
   };
@@ -49,8 +49,6 @@ function setupSlider(root: HTMLElement) {
     const index = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
     if (index !== active && index < slides.length) setActive(index);
   }, { passive: true });
-  root.addEventListener('mouseenter', stop);
-  root.addEventListener('mouseleave', start);
   document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
 
   const observer = new IntersectionObserver(([entry]) => {
@@ -60,6 +58,7 @@ function setupSlider(root: HTMLElement) {
   }, { rootMargin: '80px 0px' });
   observer.observe(root);
   setActive(0);
+  start();
 }
 
 export function setupHeroSlider(root: ParentNode = document) {
