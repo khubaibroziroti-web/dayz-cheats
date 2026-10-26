@@ -1,6 +1,7 @@
 # build output
 dist/
 .wrangler/
+
 # generated types
 .astro/
 
@@ -18,13 +19,18 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
+# editor and operating-system files
 .DS_Store
-
-# jetbrains setting folder
 .idea/
 
 # local import scratch
 _import/
 .seo-baseline/
 
+# Rust tooling (retained from the repository starter)
+debug/
+target/
+**/*.rs.bk
+*.pdb
+**/mutants.out*/
+rustc-ice-*.txt
