@@ -1,9 +1,9 @@
-/** Checkout destinations keyed by internal product id (no affiliate codes). */
+/** Affiliate checkout destinations keyed by internal product id. */
 export const CHECKOUT_URLS = {
-  rust: 'https://levocheats.com/go/KHUBAIB?to=%2Frust-cheats',
-  skinChanger: 'https://levocheats.com/go/KHUBAIB?to=%2Fskin-changer-cheats',
-  hwidSpoofer: 'https://levocheats.com/go/KHUBAIB?to=%2Fhwid-spoofer',
-  ugc: 'https://levocheats.com/go/KHUBAIB?to=%2Fgame-accounts',
+  rust: 'https://levocheats.com/go/KHUBAIBB?to=%2Frust-cheats',
+  skinChanger: 'https://levocheats.com/go/KHUBAIBB?to=%2Fskin-changer-cheats',
+  hwidSpoofer: 'https://levocheats.com/go/KHUBAIBB?to=%2Fhwid-spoofer',
+  ugc: 'https://levocheats.com/go/KHUBAIBB?to=%2Fgame-accounts',
 };
 
 /** Checkout paths map to server side destinations. */

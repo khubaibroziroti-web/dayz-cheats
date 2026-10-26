@@ -7,7 +7,7 @@ export const CHECKOUT = CHECKOUT_URLS;
 
 export type CheckoutProduct = keyof typeof CHECKOUT;
 
-/** URL slug for /go/[slug]/ checkout redirect pages. */
+/** URL slug for legacy /go/[slug]/ checkout redirect paths. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
   rust: 'rust',
   skinChanger: 'skin-changer',
@@ -19,15 +19,15 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
   Object.entries(CHECKOUT_SLUGS).map(([product, slug]) => [slug, product as CheckoutProduct]),
 ) as Record<string, CheckoutProduct>;
 
-/** Internal checkout path shown to users (hides external URL on hover). */
+/** Direct affiliate checkout URL for the selected product. */
 export function checkoutPath(product: CheckoutProduct = 'rust'): string {
-  return `/go/${CHECKOUT_SLUGS[product]}/`;
+  return CHECKOUT[product];
 }
 
 /** Default product checkout redirect (replaces legacy Discord CTAs). */
 export const PRIMARY_CHECKOUT_PATH = checkoutPath('rust');
 
-/** Map internal product slugs to checkout redirect paths. */
+/** Map internal product slugs to checkout destinations. */
 export function checkoutForSlug(slug: string): string {
   switch (slug) {
     case 'unlock-all':
@@ -45,9 +45,15 @@ export function checkoutForSlug(slug: string): string {
   }
 }
 
-/** Resolve blog CTA or legacy href values to internal checkout paths. */
+/** Resolve blog CTA or legacy href values to direct checkout destinations. */
 export function resolveCheckoutHref(href: string): string {
   if (!href.startsWith('http')) {
+    const internalCheckout = href.match(/^\/go\/([^/]+)\/?$/);
+    if (internalCheckout) {
+      const product = CHECKOUT_SLUG_TO_PRODUCT[internalCheckout[1]];
+      if (product) return CHECKOUT[product];
+    }
+
     return href.startsWith('/') ? href : `/${href}`;
   }
 
