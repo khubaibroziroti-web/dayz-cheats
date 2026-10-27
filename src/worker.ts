@@ -29,7 +29,7 @@ export default {
     if (!/charset=/i.test(contentType)) {
       headers.set('content-type', 'text/html; charset=utf-8');
     }
-    headers.set('cache-control', 'public, max-age=3600, must-revalidate, no-transform');
+    headers.set('cache-control', 'public, max-age=3600, must-revalidate');
 
     return new Response(response.body, {
       status: response.status,
