@@ -44,6 +44,7 @@ const pictureSizes = desktopOnly ? '(min-width: 1024px) 490px, 1px' : sizes;
 const pictureMedia = desktopOnly ? '(min-width: 1024px)' : undefined;
 const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 const resolvedSrc = desktopOnly || deferred ? transparentPixel : defaultWebpSrc(src, widths);
+const avifSrcSet = avifSrc ? `${avifSrc.replace('-640.avif', '-512.avif')} 512w, ${avifSrc} 640w` : undefined;
 ---
 
 {
@@ -52,8 +53,8 @@ const resolvedSrc = desktopOnly || deferred ? transparentPixel : defaultWebpSrc(
       {avifSrc && (
         <source
           type="image/avif"
-          srcset={deferred ? undefined : `${avifSrc} 640w`}
-          data-srcset={deferred ? `${avifSrc} 640w` : undefined}
+          srcset={deferred ? undefined : avifSrcSet}
+          data-srcset={deferred ? avifSrcSet : undefined}
           sizes={pictureSizes}
           media={pictureMedia}
         />

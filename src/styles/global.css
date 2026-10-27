@@ -163,9 +163,26 @@ html:not(.dark) .text-muted-foreground {
   }
 }
 
-html.fonts-pending body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+/* Skip first-paint layout and paint work for homepage sections below the viewport. */
+#features,
+#products,
+#why-us,
+#setup-guide,
+#workflow,
+#blog,
+#faq,
+body > footer {
+  content-visibility: auto;
 }
+
+#features { contain-intrinsic-size: auto 1500px; }
+#products { contain-intrinsic-size: auto 850px; }
+#why-us { contain-intrinsic-size: auto 1200px; }
+#setup-guide { contain-intrinsic-size: auto 600px; }
+#workflow { contain-intrinsic-size: auto 850px; }
+#blog { contain-intrinsic-size: auto 750px; }
+#faq { contain-intrinsic-size: auto 900px; }
+body > footer { contain-intrinsic-size: auto 500px; }
 
 /* Lucide icons via Icon.astro — white in dark mode; muted + primary accents in light */
 .icon-app {

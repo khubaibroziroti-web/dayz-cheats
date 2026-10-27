@@ -1,19 +1,3 @@
-function initFonts() {
-  const root = document.documentElement;
-
-  const markReady = () => {
-    root.classList.remove('fonts-pending');
-    root.classList.add('fonts-ready');
-  };
-
-  if (!document.fonts?.ready) {
-    markReady();
-    return;
-  }
-
-  document.fonts.ready.then(markReady).catch(markReady);
-}
-
 function initNavHighlight() {
   const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
 
@@ -158,7 +142,6 @@ function initMobileNavigation() {
 }
 
 function bootSite() {
-  initFonts();
   initFaqFilters();
   initNavHighlight();
   initInPageScroll();

@@ -48,7 +48,7 @@ const robotsContent = noindex
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
@@ -58,7 +58,6 @@ const robotsContent = noindex
           if (stored === 'light') document.documentElement.classList.remove('dark');
           else if (stored === 'dark') document.documentElement.classList.add('dark');
         } catch (e) {}
-        document.documentElement.classList.add('fonts-pending');
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />

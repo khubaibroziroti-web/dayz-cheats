@@ -1,5 +1,5 @@
 const AUTOPLAY_MS = 4800;
-const INITIAL_AUTOPLAY_MS = 12000;
+const INITIAL_AUTOPLAY_MS = 20000;
 
 function setupSlider(root: HTMLElement) {
   const viewport = root.querySelector<HTMLElement>('[data-hero-viewport]');
