@@ -141,7 +141,34 @@ function initMobileNavigation() {
   });
 }
 
+function initDeferredSections() {
+  const hero = document.getElementById('hero');
+  if (!hero || document.documentElement.dataset.deferredSectionsReady === 'true') return;
+  document.documentElement.dataset.deferredSectionsReady = 'true';
+
+  const sections = document.querySelectorAll<HTMLElement>('[data-deferred-section]');
+  const reveal = (section: HTMLElement) => section.classList.add('is-rendered');
+
+  if (!('IntersectionObserver' in window)) {
+    sections.forEach(reveal);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        reveal(entry.target as HTMLElement);
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -80% 0px', threshold: 0.01 },
+  );
+  sections.forEach((section) => observer.observe(section));
+}
+
 function bootSite() {
+  initDeferredSections();
   initFaqFilters();
   initNavHighlight();
   initInPageScroll();

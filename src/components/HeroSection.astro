@@ -2,7 +2,7 @@
 import { t } from '../i18n';
 import { ROUTES } from '../utils/path';
 import { heroSlides } from '../data/products';
-import { compatibilityIcons, heroStatIcons, heroStatusPills } from '../data/sectionIcons';
+import { heroStatIcons, heroStatusPills } from '../data/sectionIcons';
 import ImageSlider from './ImageSlider.astro';
 import Icon from './icons/Icon.astro';
 import { Button } from '@/components/starwind/button';
@@ -12,10 +12,6 @@ const h = t.hero;
 
 const heroMarqueePills = [
   ...heroStatusPills,
-  ...t.compatibility.items.map((label, i) => ({
-    label,
-    icon: compatibilityIcons[i] ?? 'check',
-  })),
 ];
 
 ---
@@ -96,7 +92,6 @@ const heroMarqueePills = [
       <div class="hero-status-marquee-track flex w-max gap-2">
         {[...heroMarqueePills, ...heroMarqueePills].map((pill, i) => (
           <Badge variant="outline" class="group/badge shrink-0 gap-1 py-0.5 pl-1.5 pr-2.5 text-xs whitespace-nowrap">
-            <Icon name={pill.icon} size={13} />
             {pill.label}
           </Badge>
         ))}

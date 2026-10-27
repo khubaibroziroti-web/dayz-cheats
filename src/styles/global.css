@@ -164,25 +164,30 @@ html:not(.dark) .text-muted-foreground {
 }
 
 /* Skip first-paint layout and paint work for homepage sections below the viewport. */
-#features,
-#products,
-#why-us,
-#setup-guide,
-#workflow,
-#blog,
-#faq,
-body > footer {
+.deferred-section {
+  min-height: var(--deferred-size, 1000px);
+  content-visibility: hidden;
+  contain-intrinsic-size: auto var(--deferred-size, 1000px);
+}
+
+.deferred-section.is-rendered {
+  min-height: 0;
   content-visibility: auto;
 }
 
-#features { contain-intrinsic-size: auto 1500px; }
-#products { contain-intrinsic-size: auto 850px; }
-#why-us { contain-intrinsic-size: auto 1200px; }
-#setup-guide { contain-intrinsic-size: auto 600px; }
-#workflow { contain-intrinsic-size: auto 850px; }
-#blog { contain-intrinsic-size: auto 750px; }
-#faq { contain-intrinsic-size: auto 900px; }
-body > footer { contain-intrinsic-size: auto 500px; }
+.deferred-section:not(.is-rendered) > * {
+  display: none;
+}
+
+.hero-status-marquee [data-sw-badge]::before {
+  width: 0.3rem;
+  height: 0.3rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--primary-accent);
+  box-shadow: 0 0 0 2px color-mix(in oklch, var(--primary) 18%, transparent);
+  content: '';
+}
 
 /* Lucide icons via Icon.astro — white in dark mode; muted + primary accents in light */
 .icon-app {

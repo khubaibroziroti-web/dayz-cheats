@@ -31,8 +31,16 @@ const heroLcpImage = webpSrc('/images/rust-screenshots/rust-ice-field.webp', 640
     fetchpriority="high"
   />
   <HeroSection />
-  <FeaturesSection />
-  <ProductsSection />
-  <WhySetupSection />
-  <ContentSections />
+  <div class="deferred-section" data-deferred-section style="--deferred-size: 1500px">
+    <FeaturesSection />
+  </div>
+  <div class="deferred-section" data-deferred-section style="--deferred-size: 850px">
+    <ProductsSection />
+  </div>
+  <div class="deferred-section" data-deferred-section style="--deferred-size: 1800px">
+    <WhySetupSection />
+  </div>
+  <div class="deferred-section" data-deferred-section style="--deferred-size: 2500px">
+    <ContentSections />
+  </div>
 </BaseLayout>
