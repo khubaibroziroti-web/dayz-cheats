@@ -17,6 +17,7 @@ interface Props {
   class?: string;
   desktopOnly?: boolean;
   deferred?: boolean;
+  avifSrc?: string;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
   class: className,
   desktopOnly = false,
   deferred = false,
+  avifSrc,
 } = Astro.props;
 
 const isRaster = /\.(png|jpe?g|webp)$/i.test(src);
@@ -47,6 +49,15 @@ const resolvedSrc = desktopOnly || deferred ? transparentPixel : defaultWebpSrc(
 {
   isRaster ? (
     <picture>
+      {avifSrc && (
+        <source
+          type="image/avif"
+          srcset={deferred ? undefined : `${avifSrc} 640w`}
+          data-srcset={deferred ? `${avifSrc} 640w` : undefined}
+          sizes={pictureSizes}
+          media={pictureMedia}
+        />
+      )}
       <source
         type="image/webp"
         srcset={deferred ? undefined : srcSet}

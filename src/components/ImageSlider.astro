@@ -54,6 +54,7 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={isHero && i === 0 ? 'high' : undefined}
               deferred={isHero && i > 0}
+              avifSrc={isHero ? img.src.replace(/\.(png|jpe?g|webp)$/i, '-640.avif') : undefined}
               sizes={imageSizes}
               desktopOnly={desktopOnly}
               class={isHero ? 'h-full w-full object-contain' : undefined}
