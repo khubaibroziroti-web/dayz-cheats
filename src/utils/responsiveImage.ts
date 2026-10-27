@@ -5,7 +5,7 @@ export const CARD_IMAGE_WIDTHS = [400, 640] as const;
 export const CARD_IMAGE_SIZES = '(min-width: 1024px) 330px, (min-width: 640px) 50vw, 100vw';
 /** Hero slider ~490–640px CSS; include 960 for retina and sharp fallbacks. */
 export const HERO_IMAGE_WIDTHS = [640, 960] as const;
-export const HERO_IMAGE_SIZES = '(min-width: 1024px) 560px, (min-width: 640px) 70vw, 100vw';
+export const HERO_IMAGE_SIZES = '(min-width: 1024px) 560px, (min-width: 640px) 70vw, calc(100vw - 3.5rem)';
 /** Thumbs ~148px CSS; 320w covers 2x DPR without pulling 640/960. */
 export const THUMB_IMAGE_WIDTHS = [320, 400] as const;
 /** Product / blog main images — prefer 960 as default src for clarity. */

@@ -39,8 +39,8 @@ const isActivePath = (href: string) => {
       aria-current={isActivePath('/') ? 'page' : undefined}
       data-nav-link
     >
-      <img src="/dayz-logo-512.webp" alt="Rust Cheats logo" width="28" height="28" class="mr-2 size-7 shrink-0 rounded-md" />
-      <span class="truncate" aria-hidden="true"><span class="text-white">Rust</span><span class="text-primary">Cheats</span></span>
+      <img src="/dayz-favicon-32.png" alt="Rust Cheats logo" width="28" height="28" class="mr-2 size-7 shrink-0 rounded-md" />
+      <span class="truncate" aria-hidden="true"><span class="text-white">Rust</span><span class="brand-accent">Cheats</span></span>
     </a>
 
     <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex" aria-label="Primary">
@@ -79,7 +79,7 @@ const isActivePath = (href: string) => {
         <div class="mobile-nav__backdrop" data-mobile-nav-backdrop aria-hidden="true"></div>
         <div class="mobile-nav__panel fixed inset-y-0 right-0 z-[60] flex w-[min(100vw-2rem,20rem)] flex-col gap-4 border-l bg-background p-4 shadow-lg" data-mobile-nav-panel>
           <div class="flex min-h-8 items-center justify-between pr-10">
-            <span class="font-[family-name:var(--font-heading)] font-semibold"><span class="text-white">Rust</span><span class="text-primary">Cheats</span></span>
+            <span class="font-[family-name:var(--font-heading)] font-semibold"><span class="text-white">Rust</span><span class="brand-accent">Cheats</span></span>
             <button type="button" class="mobile-nav__close rounded-md p-1 text-muted-foreground hover:bg-muted hover:text-foreground" data-mobile-nav-close aria-label={t.ui.menuClose}>
               <Icon name="x" size={20} />
             </button>

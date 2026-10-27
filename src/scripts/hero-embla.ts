@@ -10,7 +10,23 @@ function setupSlider(root: HTMLElement) {
   let active = 0;
   let timer = 0;
   let visible = true;
+  let viewportWidth = 1;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const loadSlide = (index: number) => {
+    const slide = slides[index];
+    if (!slide) return Promise.resolve();
+    const image = slide.querySelector<HTMLImageElement>('img[data-src]');
+    if (!image) return image?.decode?.().catch(() => undefined) ?? Promise.resolve();
+    const picture = image.closest('picture');
+    picture?.querySelectorAll<HTMLElement>('[data-srcset]').forEach((element) => {
+      element.setAttribute('srcset', element.dataset.srcset ?? '');
+      element.removeAttribute('data-srcset');
+    });
+    image.src = image.dataset.src ?? image.src;
+    image.removeAttribute('data-src');
+    return image.decode?.().catch(() => undefined) ?? Promise.resolve();
+  };
 
   const setActive = (index: number) => {
     active = Math.max(0, Math.min(index, slides.length - 1));
@@ -20,33 +36,36 @@ function setupSlider(root: HTMLElement) {
       dot.setAttribute('aria-selected', String(selected));
       const progress = dot.querySelector<HTMLElement>('[data-hero-embla-progress]');
       if (!progress) return;
-      progress.style.animation = 'none';
-      progress.style.width = selected && reduceMotion ? '100%' : '0%';
+      progress.getAnimations().forEach((animation) => animation.cancel());
+      progress.style.transform = selected && reduceMotion ? 'scaleX(1)' : 'scaleX(0)';
       if (selected && !reduceMotion) {
-        void progress.offsetWidth;
-        progress.style.animation = `hero-embla-progress ${AUTOPLAY_MS}ms linear forwards`;
+        progress.animate(
+          [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }],
+          { duration: AUTOPLAY_MS, easing: 'linear', fill: 'forwards' },
+        );
       }
     });
   };
 
-  const show = (index: number) => {
+  const show = async (index: number) => {
     const next = (index + slides.length) % slides.length;
-    viewport.scrollTo({ left: slides[next].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
+    await loadSlide(next);
+    viewport.scrollTo({ left: next * viewportWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
     setActive(next);
   };
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
     if (!document.hidden && visible) {
-      timer = window.setInterval(() => show(active + 1), AUTOPLAY_MS);
+      timer = window.setInterval(() => void show(active + 1), AUTOPLAY_MS);
     }
   };
 
-  dots.forEach((dot, index) => dot.addEventListener('click', () => { show(index); start(); }));
-  root.querySelector('[data-hero-prev]')?.addEventListener('click', () => { show(active - 1); start(); });
-  root.querySelector('[data-hero-next]')?.addEventListener('click', () => { show(active + 1); start(); });
+  dots.forEach((dot, index) => dot.addEventListener('click', () => { void show(index); start(); }));
+  root.querySelector('[data-hero-prev]')?.addEventListener('click', () => { void show(active - 1); start(); });
+  root.querySelector('[data-hero-next]')?.addEventListener('click', () => { void show(active + 1); start(); });
   viewport.addEventListener('scroll', () => {
-    const index = Math.round(viewport.scrollLeft / Math.max(1, viewport.clientWidth));
+    const index = Math.round(viewport.scrollLeft / viewportWidth);
     if (index !== active && index < slides.length) setActive(index);
   }, { passive: true });
   document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
@@ -57,6 +76,10 @@ function setupSlider(root: HTMLElement) {
     else stop();
   }, { rootMargin: '80px 0px' });
   observer.observe(root);
+  const resizeObserver = new ResizeObserver(([entry]) => {
+    viewportWidth = Math.max(1, entry?.contentRect.width ?? 1);
+  });
+  resizeObserver.observe(viewport);
   setActive(0);
   start();
 }

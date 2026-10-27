@@ -53,6 +53,7 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
               widths={img.widths ?? imageWidths}
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={isHero && i === 0 ? 'high' : undefined}
+              deferred={isHero && i > 0}
               sizes={imageSizes}
               desktopOnly={desktopOnly}
               class={isHero ? 'h-full w-full object-contain' : undefined}
@@ -81,27 +82,28 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
   </div>
   {isHero && images.length > 1 && (
     <div
-      class="pointer-events-none absolute inset-x-2 bottom-3 flex justify-center"
+      class="pointer-events-none absolute inset-x-2 bottom-1 flex justify-center sm:bottom-2"
       data-hero-embla-dots
       role="tablist"
       aria-label="Hero slides"
     >
-      <div class="pointer-events-auto flex items-center gap-1.5 rounded-full border border-white/10 bg-black/45 px-2.5 py-1.5 backdrop-blur-sm">
+      <div class="pointer-events-auto flex items-center rounded-full border border-white/10 bg-black/45 px-1 py-0.5 backdrop-blur-sm">
         {images.map((_, i) => (
           <button
             type="button"
             role="tab"
-            class="hero-embla-dot relative h-2 shrink-0 overflow-hidden rounded-full bg-white/30 transition-[width] duration-300 data-[active=false]:w-2 data-[active=true]:w-9"
+            class="hero-embla-dot relative flex size-8 shrink-0 items-center justify-center"
             data-hero-embla-dot={i}
             aria-label={`Slide ${i + 1}`}
             aria-selected={i === 0 ? 'true' : 'false'}
             data-active={i === 0 ? 'true' : 'false'}
           >
-            <span
-              class="hero-embla-progress pointer-events-none absolute inset-y-0 left-0 w-0 rounded-full bg-primary"
-              data-hero-embla-progress
-              aria-hidden="true"
-            />
+            <span class="hero-embla-dot-track pointer-events-none relative h-2 overflow-hidden rounded-full bg-white/30" aria-hidden="true">
+              <span
+                class="hero-embla-progress absolute inset-y-0 left-0 w-full origin-left scale-x-0 rounded-full bg-primary"
+                data-hero-embla-progress
+              />
+            </span>
           </button>
         ))}
       </div>

@@ -585,7 +585,7 @@ export const en: Translations = {
     skipLink: 'Skip to main content',
     browseCheats: 'Try Now',
     browseCheatsMobile: 'Start checkout',
-    homeAria: 'Rust Cheat home',
+    homeAria: 'RustCheats home',
     checkoutAria: 'Start checkout',
     discordAria: 'Join Rust Cheat on support team',
     menuOpen: 'Open menu',

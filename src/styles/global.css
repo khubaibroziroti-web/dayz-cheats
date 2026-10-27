@@ -37,6 +37,18 @@
   color: var(--primary);
 }
 
+html.dark .section-header__eyebrow {
+  color: var(--primary-accent);
+}
+
+.brand-accent {
+  color: var(--primary);
+}
+
+html.dark .brand-accent {
+  color: var(--primary-accent);
+}
+
 .section-header__title {
   margin: 0;
   font-family: var(--font-heading, ui-sans-serif, system-ui, sans-serif);
@@ -913,17 +925,18 @@ html.dark .features-bento > article {
 }
 
 
-@keyframes hero-embla-progress {
-  from {
-    width: 0%;
-  }
-  to {
-  width: 100%;
-  }
+.hero-embla-dot-track {
+  width: 0.5rem;
+  transition: width 200ms ease;
+}
+
+.hero-embla-dot[data-active='true'] .hero-embla-dot-track {
+  width: 2rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-embla-progress {
     animation: none !important;
+    transform: scaleX(1) !important;
   }
 }

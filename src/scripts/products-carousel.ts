@@ -25,6 +25,5 @@ export function setupProductsCarousel() {
     next.addEventListener('click', () => viewport.scrollBy({ left: step(), behavior: 'smooth' }));
     viewport.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update, { passive: true });
-    update();
   });
 }
