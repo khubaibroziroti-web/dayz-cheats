@@ -14,6 +14,13 @@ const legalLinks = [
   { href: '/privacy/', label: t.footer.privacy },
   { href: '/terms/', label: t.footer.terms },
 ];
+
+const shareUrl = encodeURIComponent(`https://getrustcheat.com${Astro.url.pathname}`);
+const shareLinks = [
+  { href: `https://twitter.com/intent/tweet?url=${shareUrl}`, label: 'Share on X' },
+  { href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, label: 'Share on Facebook' },
+  { href: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`, label: 'Share on LinkedIn' },
+];
 ---
 
 <footer class="border-t border-border bg-muted/30 py-16">
@@ -21,10 +28,26 @@ const legalLinks = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a href="/" class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
-          <img src="/dayz-logo-512.webp" alt="" width="32" height="32" class="rounded-md" />
+          <img src="/dayz-logo-512.webp" alt="Rust Cheats logo" width="32" height="32" class="rounded-md" />
           <span aria-hidden="true"><span class="text-white">Rust</span><span class="text-primary">Cheats</span></span>
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
+        <nav aria-label="Share this page">
+          <ul class="flex flex-wrap gap-x-3 gap-y-1">
+            {shareLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-xs text-muted-foreground hover:text-primary"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
       <nav aria-label={t.footer.explore}>
