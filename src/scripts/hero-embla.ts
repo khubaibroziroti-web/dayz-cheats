@@ -1,4 +1,5 @@
 const AUTOPLAY_MS = 4800;
+const INITIAL_AUTOPLAY_MS = 12000;
 
 function setupSlider(root: HTMLElement) {
   const viewport = root.querySelector<HTMLElement>('[data-hero-viewport]');
@@ -11,6 +12,7 @@ function setupSlider(root: HTMLElement) {
   let timer = 0;
   let visible = true;
   let viewportWidth = 1;
+  let hasAdvanced = false;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const loadSlide = (index: number) => {
@@ -57,7 +59,11 @@ function setupSlider(root: HTMLElement) {
   const start = () => {
     stop();
     if (!document.hidden && visible) {
-      timer = window.setInterval(() => void show(active + 1), AUTOPLAY_MS);
+      const delay = hasAdvanced ? AUTOPLAY_MS : INITIAL_AUTOPLAY_MS;
+      timer = window.setTimeout(() => {
+        hasAdvanced = true;
+        void show(active + 1).finally(start);
+      }, delay);
     }
   };
 

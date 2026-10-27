@@ -34,7 +34,6 @@ const mobileDescriptions = [
     {/* Desktop comparison — centered, reference-style columns */}
     <div
       class="mt-14 hidden justify-center lg:flex"
-      role="table"
       aria-label="Rust Cheat compared with typical providers"
     >
       <div
@@ -42,14 +41,12 @@ const mobileDescriptions = [
       >
         <div
           class="why-compare-features flex min-w-0 flex-col pe-2"
-          role="rowgroup"
         >
-          <span class="sr-only" role="columnheader">Feature</span>
+          <span class="sr-only">Feature</span>
           {
             why.rows.map((row) => (
               <div
                 class="why-compare-feature-row flex flex-col justify-center gap-2"
-                role="row"
               >
                 <p class="font-[family-name:var(--font-heading)] text-lg font-bold leading-snug text-foreground md:text-xl">
                   {row.title}
@@ -67,7 +64,6 @@ const mobileDescriptions = [
         >
           <CardHeader
             class="why-compare-card-head space-y-0 border-0 bg-transparent text-center"
-            role="columnheader"
           >
             <CardTitle
               class="w-full text-center font-[family-name:var(--font-heading)] text-base font-bold normal-case leading-snug"
@@ -75,15 +71,15 @@ const mobileDescriptions = [
               {why.usLabel}
             </CardTitle>
           </CardHeader>
-          <div class="flex min-h-0 flex-1 flex-col" role="rowgroup">
+          <div class="flex min-h-0 flex-1 flex-col">
             {
               why.rows.map((row, i) => (
                 <div
+                  role="img"
                   class:list={[
                     "why-compare-card-row",
                     i === lastRowIndex && "why-compare-card-row--last",
                   ]}
-                  role="cell"
                   aria-label={`${why.usLabel}: included — ${row.title}`}
                 >
                   <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/40">
@@ -100,7 +96,6 @@ const mobileDescriptions = [
         >
           <CardHeader
             class="why-compare-card-head card-title-band space-y-0 border-b text-center"
-            role="columnheader"
           >
             <CardTitle
               class="w-full text-center font-[family-name:var(--font-heading)] text-base font-bold normal-case leading-snug text-muted-foreground"
@@ -108,15 +103,15 @@ const mobileDescriptions = [
               {why.otherLabel}
             </CardTitle>
           </CardHeader>
-          <div class="flex min-h-0 flex-1 flex-col" role="rowgroup">
+          <div class="flex min-h-0 flex-1 flex-col">
             {
               why.rows.map((row, i) => (
                 <div
+                  role="img"
                   class:list={[
                     "why-compare-card-row",
                     i === lastRowIndex && "why-compare-card-row--last",
                   ]}
-                  role="cell"
                   aria-label={`${why.otherLabel}: not included — ${row.title}`}
                 >
                   <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-muted/80 ring-1 ring-border">
