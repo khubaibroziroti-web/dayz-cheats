@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveDistDir } from './dist-dir.mjs';
 
-const SITE = 'https://getrustcheat.com';
+const SITE = 'https://getdayzcheats.net';
 const dist = resolveDistDir();
 
 function loadUrlsetXml(dir) {
@@ -67,7 +67,7 @@ function normalizeUrl(loc) {
     return null;
   }
   if (url.protocol !== 'https:') url.protocol = 'https:';
-  url.hostname = 'getrustcheat.com';
+  url.hostname = 'getdayzcheats.net';
   url.hash = '';
   url.search = '';
   let pathname = url.pathname;

@@ -50,10 +50,10 @@ function linkify(text: string): string {
       const normalized = normalizeInternalPath(href);
       return `<a href="${normalized}">${label}</a>`;
     })
-    .replace(/(https:\/\/fortnitecheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/fortnitecheats\.com/, '');
+    .replace(/(https:\/\/dayzcheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
+      const path = url.replace(/^https:\/\/dayzcheats\.com/, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://getrustcheat.com${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `https://getdayzcheats.net${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }
@@ -98,7 +98,7 @@ const published = parseBlogDate(post.date);
           <figure class="blog-article__hero">
             <ResponsiveImage
               src={post.image}
-              alt={post.imageAlt ?? `${post.title} Rust gameplay screenshot`}
+              alt={post.imageAlt ?? `${post.title} DayZ gameplay screenshot`}
               width={post.imageWidth ?? 960}
               height={post.imageHeight ?? 540}
               widths={post.imageWidths}
@@ -179,8 +179,8 @@ const published = parseBlogDate(post.date);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('rust')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Buy Rust Cheat
+            <Button as="a" href={checkoutPath('dayz')} variant="primary" aria-label={t.ui.checkoutAria}>
+              Buy DayZ Cheats
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">

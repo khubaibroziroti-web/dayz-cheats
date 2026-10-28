@@ -1,7 +1,7 @@
 {
-  "name": "Rust Cheat",
-  "short_name": "Rust Cheat",
-  "description": "Rust cheats for PC: aimbot, ESP, wallhack, radar and skin changer.",
+  "name": "DayZ Cheats",
+  "short_name": "DayZ Cheats",
+  "description": "Independent DayZ product information, Windows requirements, prices and buying guides.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

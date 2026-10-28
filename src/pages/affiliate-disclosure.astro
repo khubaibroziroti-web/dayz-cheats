@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, webPageSchema } from '../utils/schema';
+const seo = resolvePageSeo('/affiliate-disclosure/');
+const sections = [
+  { heading: 'How affiliate links work', paragraphs: ['Some purchase buttons on this website contain affiliate links. If you buy through one of those links, GetDayZCheats may receive a commission without changing the checkout price shown to you.'] },
+  { heading: 'Independent information', paragraphs: ['Affiliate relationships do not guarantee a recommendation or a product result. We aim to separate published facts from limitations and encourage visitors to verify current information with the merchant.'] },
+  { heading: 'Third-party responsibility', paragraphs: ['The merchant controls checkout, payment processing, delivery, support and refunds. Its terms and privacy policy apply to the transaction.'] },
+];
+---
+<BaseLayout title={seo.title} description={seo.description} jsonLd={[
+  webPageSchema({ name: 'Affiliate Disclosure', description: seo.description, url: '/affiliate-disclosure/' }),
+  breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Affiliate Disclosure', path: '/affiliate-disclosure/' }]),
+]}>
+  <LegalPage title="Affiliate Disclosure" description={seo.description} breadcrumbLabel="Affiliate Disclosure" sections={sections} />
+</BaseLayout>

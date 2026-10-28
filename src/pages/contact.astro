@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, webPageSchema } from '../utils/schema';
+
+const seo = resolvePageSeo('/contact/');
+const sections = [
+  { heading: 'Product questions', paragraphs: ['Start with the product details, FAQ and setup guides. They cover the published features, Windows requirements, plan durations and checkout process.'] },
+  { heading: 'Orders, delivery and refunds', paragraphs: ['Purchases are completed on an external merchant website. Use the contact or support option shown by that merchant for billing, delivery, account or refund requests.'] },
+  { heading: 'Website questions', paragraphs: ['Use the Support page for questions about this informational website, privacy or affiliate disclosures. Never send passwords, license keys or payment-card information.'] },
+];
+---
+<BaseLayout title={seo.title} description={seo.description} jsonLd={[
+  webPageSchema({ name: 'Contact GetDayZCheats', description: seo.description, url: '/contact/' }),
+  breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }]),
+]}>
+  <LegalPage title="Contact GetDayZCheats" description={seo.description} breadcrumbLabel="Contact" sections={sections} />
+</BaseLayout>

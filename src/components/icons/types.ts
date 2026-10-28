@@ -1,4 +1,4 @@
-/** Semantic app icon keys — each maps to one Lucide glyph in registry.ts */
+/** Semantic app icon keys. Each key maps to one Lucide glyph in registry.ts. */
 export type IconName =
   | 'arrowRight'
   | 'arrowUpRight'

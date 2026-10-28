@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, webPageSchema } from '../utils/schema';
+const seo = resolvePageSeo('/refund-policy/');
+const sections = [
+  { heading: 'External purchases', paragraphs: ['GetDayZCheats is an informational affiliate website and does not process payments or deliver licenses. The external merchant shown at checkout is the seller for your transaction.'] },
+  { heading: 'Refund requests', paragraphs: ['Refund eligibility, deadlines and evidence requirements are controlled by the merchant’s terms. Review those terms before purchase and contact the merchant directly using the order details it provides.'] },
+  { heading: 'Before purchasing', paragraphs: ['Confirm the current price, duration, compatibility and requirements on the merchant page. Product and platform updates can change availability or compatibility.'] },
+];
+---
+<BaseLayout title={seo.title} description={seo.description} noindex={true} jsonLd={[
+  webPageSchema({ name: 'Refund Policy', description: seo.description, url: '/refund-policy/' }),
+  breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Refund Policy', path: '/refund-policy/' }]),
+]}>
+  <LegalPage title="Refund Policy" description={seo.description} breadcrumbLabel="Refund Policy" sections={sections} />
+</BaseLayout>

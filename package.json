@@ -1,5 +1,5 @@
 {
-  "name": "rust-cheat-site",
+  "name": "dayz-cheat-site",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +12,7 @@
     "preview": "astro preview --host 0.0.0.0",
     "start": "node scripts/serve.mjs",
     "deploy": "npm run build:site && npx --yes wrangler deploy",
+    "check:site": "node scripts/check-site.mjs",
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs"
   },

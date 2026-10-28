@@ -38,11 +38,11 @@ export default {
     const url = new URL(request.url);
     const forwardedProtocol = request.headers.get('x-forwarded-proto');
     const isHttp = url.protocol === 'http:' || forwardedProtocol === 'http';
-    const isWww = url.hostname.toLowerCase() === 'www.getrustcheat.com';
+    const isWww = url.hostname.toLowerCase() === 'www.getdayzcheats.net';
 
     if (isHttp || isWww) {
       url.protocol = 'https:';
-      url.hostname = 'getrustcheat.com';
+      url.hostname = 'getdayzcheats.net';
       url.port = '';
       return Response.redirect(url.toString(), 301);
     }

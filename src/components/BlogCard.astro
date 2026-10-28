@@ -28,7 +28,7 @@ const { post, index = 0, eager = false, showDate = false, layout = 'default', cl
   Astro.props;
 const isFeatured = layout === 'featured';
 const cardImage = post.cardImage ?? post.image;
-const cardImageAlt = post.cardImageAlt ?? post.imageAlt ?? `${post.title} Rust gameplay screenshot`;
+const cardImageAlt = post.cardImageAlt ?? post.imageAlt ?? `${post.title} DayZ gameplay screenshot`;
 const cardImageWidths = post.cardImage ? [320] : CARD_IMAGE_WIDTHS;
 const href = blogPostPath(post.slug);
 const timestamp = getBlogPostTimestamp(post.date);

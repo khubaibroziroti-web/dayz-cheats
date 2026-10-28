@@ -1,14 +1,14 @@
 # Static Astro site served from Cloudflare Workers Assets.
-name = "getrustcheat-com"
+name = "getdayzcheats-net"
 compatibility_date = "2026-10-23"
 main = "src/worker.ts"
 
 [[routes]]
-pattern = "getrustcheat.com"
+pattern = "getdayzcheats.net"
 custom_domain = true
 
 [[routes]]
-pattern = "www.getrustcheat.com"
+pattern = "www.getdayzcheats.net"
 custom_domain = true
 
 [assets]

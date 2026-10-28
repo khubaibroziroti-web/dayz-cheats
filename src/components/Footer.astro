@@ -4,8 +4,8 @@ import { Separator } from '@/components/starwind/separator';
 
 const resourceLinks = [
   { href: '/blog/', label: 'Blog archive', ariaLabel: 'Blog' },
-  { href: '/products/rust-cheats/elite/', label: 'Elite cheats', ariaLabel: 'Elite cheats' },
-  { href: '/products/rust-cheats/', label: 'Products & utilities', ariaLabel: 'Products' },
+  { href: '/products/dayz-cheats/elite/', label: 'DayZ product details', ariaLabel: 'DayZ product details' },
+  { href: '/products/dayz-cheats/', label: 'Plans and requirements', ariaLabel: 'Products' },
   { href: '/support/', label: t.footer.support },
 ];
 
@@ -13,9 +13,12 @@ const legalLinks = [
   { href: '/about/', label: t.footer.about },
   { href: '/privacy/', label: t.footer.privacy },
   { href: '/terms/', label: t.footer.terms },
+  { href: '/affiliate-disclosure/', label: 'Affiliate Disclosure' },
+  { href: '/refund-policy/', label: 'Refund Policy' },
+  { href: '/disclaimer/', label: 'Disclaimer' },
 ];
 
-const shareUrl = encodeURIComponent(`https://getrustcheat.com${Astro.url.pathname}`);
+const shareUrl = encodeURIComponent(`https://getdayzcheats.net${Astro.url.pathname}`);
 const shareLinks = [
   { href: `https://twitter.com/intent/tweet?url=${shareUrl}`, label: 'Share on X' },
   { href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, label: 'Share on Facebook' },
@@ -28,8 +31,8 @@ const shareLinks = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a href="/" class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
-          <img src="/dayz-logo-64.webp" alt="Rust Cheats logo" width="32" height="32" class="rounded-md" />
-          <span aria-hidden="true"><span class="brand-rust">Rust</span><span class="brand-cheats">Cheats</span></span>
+          <img src="/dayz-logo-64.webp" alt="DayZ Cheats logo" width="32" height="32" class="rounded-md" />
+          <span aria-hidden="true"><span class="brand-dayz">DayZ</span><span class="brand-cheats">Cheats</span></span>
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
         <nav aria-label="Share this page">

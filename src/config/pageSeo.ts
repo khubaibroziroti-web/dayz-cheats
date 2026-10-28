@@ -1,83 +1,61 @@
-/**
- * Central titles/descriptions for high-traffic routes.
- * After Search Console shows impressions, edit the matching path here and redeploy.
- */
-
-export interface PageSeoEntry {
-  title: string;
-  description: string;
-}
+export interface PageSeoEntry { title: string; description: string }
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Buy Undetected Rust Cheat | Aimbot, ESP & Wallhack',
-    description:
-      'Buy undetected Rust cheats for PC — aimbot, ESP, wallhack, radar, loot ESP and skin changer. Updated after every Easy Anti-Cheat patch.',
+    title: 'DayZ Cheats for PC | ESP, Aimbot & Wallhack',
+    description: 'Compare DayZ cheats for Windows PC, including player ESP, infected and item tracking, vehicle ESP, aim controls, requirements and plan prices.',
   },
-  '/products/rust-cheats/': {
-    title: 'Buy Rust Cheat | Elite, HWID Spoofer & Skin Changer',
-    description:
-      'Shop Rust cheats for PC: Elite aimbot & ESP wallhack, HWID spoofer, UGC recovery and Skin Changer. Instant delivery after checkout.',
+  '/products/dayz-cheats/': {
+    title: 'DayZ Cheats Plans, Features & Requirements',
+    description: 'Review the listed DayZ cheat features, Windows requirements, $35 monthly plan and $150 lifetime option before partner checkout.',
   },
-  '/products/rust-cheats/elite/': {
-    title: 'Buy Rust Elite Cheats | Aimbot, ESP & Loot Assist',
-    description:
-      'Buy Rust Elite cheats with aimbot, ESP wallhack, loot assist, Auto Finish, Skin Changer and priority EAC patch updates.',
-  },
-  '/products/rust-cheats/hwid-spoofer/': {
-    title: 'Buy Rust HWID Spoofer | Hardware Ban Bypass',
-    description:
-      'Buy a Rust HWID spoofer for PC hardware bans — disk/MAC tools, compatibility scan and post-spoof checks before you launch cheats again.',
-  },
-  '/products/rust-cheats/ugc/': {
-    title: 'Buy Rust UGC | EAC & game platform Ban Appeal Tools',
-    description:
-      'Buy Rust UGC (Unban & Governance Control) to organize game platform and EAC ban appeals, dispute workflows and case tracking.',
-  },
-  '/products/rust-cheats/unlock-all/': {
-    title: 'Buy Rust Skin Changer | Unlock All Cosmetics',
-    description:
-      'Buy Rust Skin Changer / Unlock All — local outfit, wrap and pickaxe previews with your Rust cheats loadout.',
-  },
-  '/products/rust-cheats/utilities/': {
-    title: 'Buy Rust Cheat Utilities | HWID, UGC & Skin Changer',
-    description:
-      'Buy Rust cheat utilities: HWID spoofer after hardware bans, UGC for game platform/EAC appeals, and local Skin Changer / Unlock All.',
+  '/products/dayz-cheats/elite/': {
+    title: 'DayZ Cheats Product Details | ESP & Aimbot',
+    description: 'Explore the published DayZ player ESP, infected ESP, vehicle and item tracking, aimbot controls, system requirements and access plans.',
   },
   '/blog/': {
-    title: 'Rust Cheat Guides | Aimbot, ESP Wallhack & EAC',
-    description:
-      'Read Rust cheat guides on aimbot setup, ESP wallhack, Lite vs Pro, Creative practice and Easy Anti-Cheat patch-day checks.',
+    title: 'DayZ Cheats Guides | Features, Plans & Requirements',
+    description: 'Read straightforward DayZ product guides covering feature groups, Windows requirements, monthly and lifetime plans, and purchase checks.',
   },
   '/forum/': {
-    title: 'Rust Cheat Forum | Aimbot, ESP & Setup Help',
-    description:
-      'Rust cheats forum for aimbot configs, ESP wallhack setup, EAC status and product questions before you buy.',
+    title: 'DayZ Cheats Community Hub | Guides & Help',
+    description: 'Browse DayZ product resources, feature guides, requirements, FAQs and support information in one community hub.',
   },
   '/faq/': {
-    title: 'Rust Cheat FAQ | Aimbot, ESP, Bans & Setup',
-    description:
-      'Rust cheats FAQ — tiers, aimbot, ESP wallhack, radar, HWID spoofer, Skin Changer, bans and loader setup before checkout.',
+    title: 'DayZ Cheats FAQ | Features, Plans & Compatibility',
+    description: 'Answers about DayZ cheat features, Windows compatibility, plan prices, external checkout and changing product availability.',
   },
   '/terms/': {
-    title: 'Terms for Rust Cheat | License & Refunds',
-    description:
-      'Terms for buying Rust cheats on getrustcheat.com — license use, delivery, refunds and account risk.',
+    title: 'Terms and Affiliate Disclosure | GetDayZCheats',
+    description: 'Read the GetDayZCheats affiliate disclosure and terms covering third-party checkout, product information and purchase responsibility.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | Rust Cheat Shop',
-    description:
-      'How the Rust cheats shop at getrustcheat.com uses analytics, cookies and contact data.',
+    title: 'Privacy Policy | GetDayZCheats',
+    description: 'Learn how GetDayZCheats handles theme preferences, optional analytics, server logs and links to external merchants.',
   },
   '/about/': {
-    title: 'About Rust Cheat | Buy PC Aimbot & ESP',
-    description:
-      'About Rust Cheat — we sell PC Rust cheats (aimbot, ESP, wallhack), guides and utilities at getrustcheat.com.',
+    title: 'About GetDayZCheats | Independent Product Guide',
+    description: 'Learn how GetDayZCheats presents DayZ product information, requirements, plan details and disclosed affiliate links.',
   },
   '/support/': {
-    title: 'Rust Cheat Support | Loader, HWID & Checkout',
-    description:
-      'Rust cheats support for loader setup, aimbot/ESP configs, HWID spoofing and checkout help — 24/7 support team.',
+    title: 'DayZ Product Support | Requirements & Purchase Help',
+    description: 'Find DayZ product requirements, plan information, FAQs, guides and external merchant support guidance.',
+  },
+  '/contact/': {
+    title: 'Contact GetDayZCheats | Product and Purchase Help',
+    description: 'Find the right contact path for DayZ product questions, checkout help, privacy requests and affiliate disclosures.',
+  },
+  '/refund-policy/': {
+    title: 'Refund Policy | GetDayZCheats',
+    description: 'Understand how refunds are handled by the external merchant that processes DayZ product purchases.',
+  },
+  '/affiliate-disclosure/': {
+    title: 'Affiliate Disclosure | GetDayZCheats',
+    description: 'Learn how GetDayZCheats may earn commissions from clearly identified third-party purchase links.',
+  },
+  '/disclaimer/': {
+    title: 'Website Disclaimer | GetDayZCheats',
+    description: 'Read important limitations covering product information, compatibility, third-party software and game-service rules.',
   },
 };
 

@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://getrustcheat.com/sitemap-index.xml
+Sitemap: https://getdayzcheats.net/sitemap-index.xml

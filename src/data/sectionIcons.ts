@@ -7,7 +7,7 @@ export const featureIcons: Record<string, IconName> = {
   'Aimbot': 'featureAimbot',
   'Utility Suite': 'featureUtilitySuite',
   'Loot Assist': 'compareAutoFarm',
-  'Stream Proof': 'streamProof',
+  'Player ESP': 'streamProof',
   'Radar Hack': 'compareZoomHack',
   'Cloud Config & Updates': 'compareCloudBackup',
 };
@@ -43,24 +43,19 @@ export const blogTagIcons: Record<string, IconName> = {
 };
 
 export const heroStatusPills: { icon: IconName; label: string }[] = [
-  { icon: 'espActive', label: 'ESP Active' },
-  { icon: 'radarOnline', label: 'Radar Online' },
-  { icon: 'seasonBuild', label: 'Season Build' },
-  { icon: 'undetected', label: 'Undetected' },
-  { icon: 'softAim', label: 'Soft Aim Ready' },
-  { icon: 'noRecoil', label: 'No Recoil' },
-  { icon: 'streamProof', label: 'Stream Proof' },
-  { icon: 'lootEsp', label: 'Loot ESP' },
-  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
-  { icon: 'uavRadar', label: 'UAV Radar' },
-  { icon: 'mapHack', label: 'ESP Wallhack' },
-  { icon: 'support247', label: '24/7 Support' },
-  { icon: 'instantDelivery', label: 'Instant Delivery' },
-  { icon: 'rankedSafe', label: 'Ranked Safe' },
-  { icon: 'triggerBot', label: 'Trigger Bot' },
+  { icon: 'espActive', label: 'Player ESP' },
+  { icon: 'radarOnline', label: 'Infected ESP' },
+  { icon: 'seasonBuild', label: 'Vehicle ESP' },
+  { icon: 'softAim', label: 'Aim FOV' },
   { icon: 'boneSelect', label: 'Bone Select' },
-  { icon: 'liveStatus', label: 'Live Status' },
-  { icon: 'autoUpdates', label: 'Auto Updates' },
+  { icon: 'streamProof', label: 'Target Filters' },
+  { icon: 'lootEsp', label: 'Item ESP' },
+  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
+  { icon: 'uavRadar', label: 'World ESP' },
+  { icon: 'mapHack', label: 'Inventory View' },
+  { icon: 'instantDelivery', label: 'Monthly Plan' },
+  { icon: 'liveStatus', label: 'Lifetime Plan' },
+  { icon: 'autoUpdates', label: 'Saved Config' },
 ];
 
 export const heroStatIcons: IconName[] = [

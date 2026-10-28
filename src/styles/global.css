@@ -41,11 +41,11 @@ html.dark .section-header__eyebrow {
   color: var(--primary-accent);
 }
 
-.brand-rust {
+.brand-dayz {
   color: var(--foreground);
 }
 
-html.dark .brand-rust {
+html.dark .brand-dayz {
   color: #ffffff;
 }
 

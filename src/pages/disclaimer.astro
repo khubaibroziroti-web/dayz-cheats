@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, webPageSchema } from '../utils/schema';
+const seo = resolvePageSeo('/disclaimer/');
+const sections = [
+  { heading: 'No affiliation with the game publisher', paragraphs: ['GetDayZCheats is an independent informational affiliate website. It is not affiliated with, endorsed by or operated by the DayZ publisher or developer. Names and marks are used only to identify the relevant game and product category.'] },
+  { heading: 'Information can change', paragraphs: ['Prices, features, compatibility and availability can change after product, game, operating-system or platform updates. Confirm current details with the merchant before purchasing.'] },
+  { heading: 'Third-party software risk', paragraphs: ['Third-party software may violate a game or service’s rules and may lead to restrictions or account loss. Visitors are responsible for reviewing applicable terms and understanding the risks. No outcome or continued compatibility is guaranteed.'] },
+];
+---
+<BaseLayout title={seo.title} description={seo.description} noindex={true} jsonLd={[
+  webPageSchema({ name: 'Website Disclaimer', description: seo.description, url: '/disclaimer/' }),
+  breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Disclaimer', path: '/disclaimer/' }]),
+]}>
+  <LegalPage title="Website Disclaimer" description={seo.description} breadcrumbLabel="Disclaimer" sections={sections} />
+</BaseLayout>

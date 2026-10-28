@@ -5,18 +5,17 @@ import sharp from 'sharp';
 const root = process.cwd();
 const widths = [320, 400, 512, 640, 960];
 const defaultDirs = [
-  'public/images/gameplay',
-  'public/images/blog',
+  'public/images/dayz-screenshots',
 ];
 const protectedSources = new Set([
-  'fortnite-arena-wallhack.png',
-  'fortnite-chams-esp.png',
-  'fortnite-combat-esp.png',
-  'fortnite-long-range-esp.png',
-  'fortnite-loot-radar.png',
-  'fortnite-radar-hack.png',
-  'fortnite-skin-changer.png',
-  'fortnite-spawn-island-esp.png',
+  'dayz-arena-wallhack.png',
+  'dayz-chams-esp.png',
+  'dayz-combat-esp.png',
+  'dayz-long-range-esp.png',
+  'dayz-loot-radar.png',
+  'dayz-radar-hack.png',
+  'dayz-skin-changer.png',
+  'dayz-spawn-island-esp.png',
 ]);
 const dirs = process.argv.slice(2).length ? process.argv.slice(2) : defaultDirs;
 

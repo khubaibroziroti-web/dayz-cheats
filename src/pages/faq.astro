@@ -21,9 +21,9 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'FAQ — Rust Cheat & Products',
+      name: 'FAQ — DayZ Cheats & Products',
       description:
-        'Answers about Rust cheat tiers, ESP wallhack, aimbot, HWID tools, blog guides and checkout at getrustcheat.com.',
+        'Answers about DayZ cheat tiers, ESP wallhack, aimbot, HWID tools, blog guides and checkout at getdayzcheats.net.',
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
@@ -36,7 +36,7 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="Rust cheats FAQ"
+          title="DayZ cheats FAQ"
           desc="Everything about Lite, Pro, Elite tiers, utilities, safety and blog topics—in one place."
           titleId="faq-page-title"
           level="h1"

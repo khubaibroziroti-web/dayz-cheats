@@ -4,11 +4,11 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/rust-screenshots/rust-day-settings.webp';
+export const DEFAULT_OG_IMAGE = '/images/dayz-screenshots/dayz-player-esp.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @fortnitecheats */
+/** @example @dayzcheats */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;
@@ -52,11 +52,11 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed}${suffix}`;
 }
 
-/** Keep meta descriptions blunt about Rust cheats for SERP snippets. */
+/** Keep meta descriptions blunt about DayZ cheats for SERP snippets. */
 export function cheatMetaDescription(text: string): string {
   const trimmed = text.trim();
-  if (/rust\s*cheat/i.test(trimmed)) return trimmed;
-  return `Rust cheats guide: ${trimmed}`;
+  if (/dayz\s*cheat/i.test(trimmed)) return trimmed;
+  return `DayZ cheats guide: ${trimmed}`;
 }
 
 export const DEFAULT_OG_IMAGE_WIDTH = 1202;

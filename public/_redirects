@@ -1,30 +1,17 @@
-# Checkout redirects
-/go/rust  https://levocheats.com/go/KHUBAIBB?to=%2Frust-cheats  302
-/go/rust/  https://levocheats.com/go/KHUBAIBB?to=%2Frust-cheats  302
-/go/skin-changer  https://levocheats.com/go/KHUBAIBB?to=%2Fskin-changer-cheats  302
-/go/skin-changer/  https://levocheats.com/go/KHUBAIBB?to=%2Fskin-changer-cheats  302
-/go/hwid-spoofer  https://levocheats.com/go/KHUBAIBB?to=%2Fhwid-spoofer  302
-/go/hwid-spoofer/  https://levocheats.com/go/KHUBAIBB?to=%2Fhwid-spoofer  302
-/go/ugc  https://levocheats.com/go/KHUBAIBB?to=%2Fgame-accounts  302
-/go/ugc/  https://levocheats.com/go/KHUBAIBB?to=%2Fgame-accounts  302
+# Affiliate checkout redirect
+/go/dayz  https://levocheats.com/go/KHUBAIB?to=%2Fdayz-cheats  302
+/go/dayz/  https://levocheats.com/go/KHUBAIB?to=%2Fdayz-cheats  302
 
-
-# Legacy paths
-/contact  /support/  301
-/contact/  /support/  301
-/cheats  /products/rust-cheats/  301
-/cheats/  /products/rust-cheats/  301
-/cheats/lite  /products/rust-cheats/  301
-/cheats/lite/  /products/rust-cheats/  301
-/cheats/pro  /products/rust-cheats/  301
-/cheats/pro/  /products/rust-cheats/  301
-/cheats/elite  /products/rust-cheats/elite/  301
-/cheats/elite/  /products/rust-cheats/elite/  301
-/cheats/compare  /products/rust-cheats/  301
-/cheats/compare/  /products/rust-cheats/  301
-
-
-
-
-
-
+# Legacy and convenience paths
+/cheats  /products/dayz-cheats/  301
+/cheats/  /products/dayz-cheats/  301
+/cheats/lite  /products/dayz-cheats/  301
+/cheats/lite/  /products/dayz-cheats/  301
+/cheats/pro  /products/dayz-cheats/  301
+/cheats/pro/  /products/dayz-cheats/  301
+/cheats/elite  /products/dayz-cheats/elite/  301
+/cheats/elite/  /products/dayz-cheats/elite/  301
+/cheats/compare  /products/dayz-cheats/  301
+/cheats/compare/  /products/dayz-cheats/  301
+/products/dayz-cheats/utilities  /products/dayz-cheats/  301
+/products/dayz-cheats/utilities/  /products/dayz-cheats/  301
