@@ -31,7 +31,11 @@ function initInPageScroll() {
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const deferredSection = target.closest<HTMLElement>('[data-deferred-section]');
+      deferredSection?.classList.add('is-rendered');
+      window.requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   });
 }
