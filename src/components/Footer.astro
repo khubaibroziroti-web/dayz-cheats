@@ -28,13 +28,8 @@ const shareLinks = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a href="/" class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
-          <span class="brand-logo-light" aria-hidden="true">
-            <img src="/rust-logo-light.png" alt="" width="738" height="414" />
-          </span>
-          <span class="brand-logo-dark items-center" aria-hidden="true">
-            <img src="/dayz-logo-64.webp" alt="" width="32" height="32" class="mr-2 rounded-md" />
-            <span><span class="brand-rust">Rust</span><span class="brand-cheats">Cheats</span></span>
-          </span>
+          <img src="/dayz-logo-64.webp" alt="Rust Cheats logo" width="32" height="32" class="rounded-md" />
+          <span aria-hidden="true"><span class="brand-rust">Rust</span><span class="brand-cheats">Cheats</span></span>
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
         <nav aria-label="Share this page">

@@ -42,7 +42,7 @@ html.dark .section-header__eyebrow {
 }
 
 .brand-rust {
-  color: #ffffff;
+  color: var(--foreground);
 }
 
 html.dark .brand-rust {
@@ -55,37 +55,6 @@ html.dark .brand-rust {
 
 html.dark .brand-cheats {
   color: var(--primary-accent);
-}
-
-.brand-logo-light {
-  position: relative;
-  display: inline-block;
-  width: 7.6rem;
-  height: 1.85rem;
-  flex: 0 0 auto;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.brand-logo-light > img {
-  position: absolute;
-  top: -1.24rem;
-  left: -0.05rem;
-  width: 7.7rem;
-  max-width: none;
-  height: auto;
-}
-
-.brand-logo-dark {
-  display: none;
-}
-
-html.dark .brand-logo-light {
-  display: none;
-}
-
-html.dark .brand-logo-dark {
-  display: inline-flex;
 }
 
 .section-header__title {
