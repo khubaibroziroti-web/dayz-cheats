@@ -25,6 +25,7 @@ let updated = 0;
 for (const filePath of listHtmlFiles(distDir)) {
   const html = fs.readFileSync(filePath, 'utf8');
   if (html.includes('/dayz-favicon.ico')) continue;
+  if (!html.includes('</head>') && !/^<!doctype html>/i.test(html)) continue;
 
   const finalizedHtml = html.includes('</head>')
     ? html.replace('</head>', `${faviconMarkup}</head>`)
