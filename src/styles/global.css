@@ -362,6 +362,8 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 }
 
 .hero-status-marquee {
+  width: 100vw;
+  margin-inline-start: calc(50% - 50vw);
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
 }
