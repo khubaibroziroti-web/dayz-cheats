@@ -167,13 +167,13 @@ export const forumPosts: ForumPost[] = [
   },
   {
     slug: 'rust-cheats-plan-duration-question', category: 'Community', categoryTone: 'green',
-    title: 'One week, one month, or lifetime: how are you comparing the plans?',
-    excerpt: 'A buyer question comparing the three listed durations without assuming plan benefits.',
+    title: 'One month or lifetime: how are you comparing the plans?',
+    excerpt: 'A buyer question comparing the two listed durations without assuming plan benefits.',
     author: 'thirtyscrap', age: 'Jul 26, 2026', date: '2026-07-26', commentsCount: 3, upvotes: 0, flair: 'Buying question',
     primaryKeyword: 'Rust cheat plans', secondaryKeywords: ['Rust Cheats price', 'Rust cheat duration'],
-    searchIntent: 'Commercial', searchTopic: 'How to compare the one-week, one-month, and lifetime plan durations and listed prices.',
+    searchIntent: 'Commercial', searchTopic: 'How to compare the one-month and lifetime plan durations and listed prices.',
     suggestedInternalLinks: [{ href: '/products/rust-cheats/elite/', anchor: 'the current plan options' }, { href: '/blog/rust-cheats-pricing-plans/', anchor: 'plan prices and durations' }],
-    body: ['The plan page shows 7 days for $15, 30 days for $35, and lifetime for $150. Is there any difference in features between them, or is the choice just how long you need access? I could not see a plan comparison beyond duration.'],
+    body: ['The plan page shows 30 days for $35 and lifetime for $150. Is there any difference in features between them, or is the choice just how long you need access? I could not see a plan comparison beyond duration.'],
     comments: [
       { author: 'quietpick', age: 'Jul 26, 2026', score: 0, body: 'The details supplied here list different durations and prices, but do not describe plan-specific feature differences. I would ask support if that is a deciding factor.', replies: [
         { author: 'thirtyscrap', age: 'Jul 27, 2026', score: 0, body: 'Thanks, that is what I thought. I will compare the duration and clarify before I choose.' },

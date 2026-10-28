@@ -1,4 +1,4 @@
-export type ProductPlanId = 'weekly' | 'monthly' | 'lifetime' | 'onetime';
+export type ProductPlanId = 'monthly' | 'lifetime' | 'onetime';
 
 export interface ProductPlan {
   id: ProductPlanId;
@@ -13,7 +13,6 @@ const standardPlans: ProductPlan[] = [
 ];
 
 const rustPlans: ProductPlan[] = [
-  { id: 'weekly', label: '1 Week', priceUsd: 15, priceNote: '7 days' },
   { id: 'monthly', label: '1 Month', priceUsd: 35, priceNote: '30 days · Popular' },
   { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'Lifetime' },
 ];

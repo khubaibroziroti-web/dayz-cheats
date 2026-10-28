@@ -1,5 +1,5 @@
-const AUTOPLAY_MS = 4800;
-const INITIAL_AUTOPLAY_MS = 30000;
+const AUTOPLAY_MS = 4200;
+const INITIAL_AUTOPLAY_MS = 4200;
 
 function setupSlider(root: HTMLElement) {
   const viewport = root.querySelector<HTMLElement>('[data-hero-viewport]');
@@ -88,6 +88,17 @@ function setupSlider(root: HTMLElement) {
   resizeObserver.observe(viewport);
   setActive(0);
   start();
+
+  const preloadNextSlide = () => {
+    const preload = () => void loadSlide(1);
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(preload, { timeout: 1200 });
+    } else {
+      window.setTimeout(preload, 300);
+    }
+  };
+  if (document.readyState === 'complete') preloadNextSlide();
+  else window.addEventListener('load', preloadNextSlide, { once: true });
 }
 
 export function setupHeroSlider(root: ParentNode = document) {
