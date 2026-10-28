@@ -42,7 +42,7 @@ html.dark .section-header__eyebrow {
 }
 
 .brand-rust {
-  color: var(--primary);
+  color: var(--foreground);
 }
 
 html.dark .brand-rust {
@@ -50,7 +50,7 @@ html.dark .brand-rust {
 }
 
 .brand-cheats {
-  color: #ffffff;
+  color: var(--primary);
 }
 
 html.dark .brand-cheats {
