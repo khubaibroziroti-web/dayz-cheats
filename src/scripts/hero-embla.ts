@@ -1,17 +1,17 @@
 const AUTOPLAY_MS = 4200;
-const INITIAL_AUTOPLAY_MS = 4200;
+const INITIAL_AUTOPLAY_MS = 12000;
 
 function setupSlider(root: HTMLElement) {
   const viewport = root.querySelector<HTMLElement>('[data-hero-viewport]');
+  const track = root.querySelector<HTMLElement>('[data-hero-track]');
   const slides = Array.from(root.querySelectorAll<HTMLElement>('[data-hero-slide]'));
   const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-hero-embla-dot]'));
-  if (!viewport || slides.length < 2 || root.dataset.sliderReady === 'true') return;
+  if (!viewport || !track || slides.length < 2 || root.dataset.sliderReady === 'true') return;
   root.dataset.sliderReady = 'true';
 
   let active = 0;
   let timer = 0;
   let visible = true;
-  let viewportWidth = 1;
   let hasAdvanced = false;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -52,7 +52,7 @@ function setupSlider(root: HTMLElement) {
   const show = async (index: number) => {
     const next = (index + slides.length) % slides.length;
     await loadSlide(next);
-    viewport.scrollTo({ left: next * viewportWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
+    track.style.transform = `translate3d(-${next * 100}%, 0, 0)`;
     setActive(next);
   };
   const stop = () => window.clearInterval(timer);
@@ -70,10 +70,6 @@ function setupSlider(root: HTMLElement) {
   dots.forEach((dot, index) => dot.addEventListener('click', () => { void show(index); start(); }));
   root.querySelector('[data-hero-prev]')?.addEventListener('click', () => { void show(active - 1); start(); });
   root.querySelector('[data-hero-next]')?.addEventListener('click', () => { void show(active + 1); start(); });
-  viewport.addEventListener('scroll', () => {
-    const index = Math.round(viewport.scrollLeft / viewportWidth);
-    if (index !== active && index < slides.length) setActive(index);
-  }, { passive: true });
   document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
 
   const observer = new IntersectionObserver(([entry]) => {
@@ -82,23 +78,18 @@ function setupSlider(root: HTMLElement) {
     else stop();
   }, { rootMargin: '80px 0px' });
   observer.observe(root);
-  const resizeObserver = new ResizeObserver(([entry]) => {
-    viewportWidth = Math.max(1, entry?.contentRect.width ?? 1);
-  });
-  resizeObserver.observe(viewport);
   setActive(0);
   start();
 
   const preloadNextSlide = () => {
-    const preload = () => void loadSlide(1);
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(preload, { timeout: 1200 });
-    } else {
-      window.setTimeout(preload, 300);
+    void loadSlide((active + 1) % slides.length);
+    if (!hasAdvanced) {
+      hasAdvanced = true;
+      start();
     }
   };
-  if (document.readyState === 'complete') preloadNextSlide();
-  else window.addEventListener('load', preloadNextSlide, { once: true });
+  root.addEventListener('pointerenter', preloadNextSlide, { once: true, passive: true });
+  root.addEventListener('focusin', preloadNextSlide, { once: true });
 }
 
 export function setupHeroSlider(root: ParentNode = document) {

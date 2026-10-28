@@ -372,11 +372,20 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
   animation: hero-status-marquee 55s linear infinite;
 }
 
+.hero-slider-track {
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
 .hero-status-marquee:hover .hero-status-marquee-track {
   animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-slider-track {
+    transition: none;
+  }
+
   .hero-status-marquee-track {
     animation: none;
     flex-wrap: wrap;

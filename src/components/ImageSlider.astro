@@ -36,8 +36,8 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
   data-hero-embla-wrap={isHero || undefined}
 >
   <div class="w-full overflow-hidden rounded-lg" data-hero-embla={isHero || undefined}>
-    <div class="flex w-full snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-hero-viewport>
-      <div class="flex w-full" data-hero-track>
+    <div class="w-full overflow-hidden" data-hero-viewport>
+      <div class="hero-slider-track flex w-full" data-hero-track>
       {images.map((img, i) => (
         <div class="w-full shrink-0 snap-start" data-hero-slide>
           <figure
