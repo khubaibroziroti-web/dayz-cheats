@@ -26,10 +26,10 @@ export const en: Translations = {
     ctaPrimary: 'View DayZ cheats', ctaDiscord: 'Contact support', modesLabel: 'Product highlights',
     modes: ['Player ESP', 'Item ESP', 'Vehicle ESP', 'Aimbot'],
     metrics: [
-      { label: 'Operating system', strong: 'Windows 10/11' },
-      { label: 'Monthly plan', strong: '$35' },
-      { label: 'Lifetime plan', strong: '$150' },
-      { label: 'Menu language', strong: 'English' },
+      { label: 'Stream-safe', strong: 'Yes' },
+      { label: 'Patch speed', strong: '<24h' },
+      { label: 'Users', strong: '300+' },
+      { label: 'Support', strong: '24/7' },
     ],
   },
   features: {
