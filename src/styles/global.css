@@ -41,11 +41,19 @@ html.dark .section-header__eyebrow {
   color: var(--primary-accent);
 }
 
-.brand-accent {
+.brand-rust {
   color: var(--primary);
 }
 
-html.dark .brand-accent {
+html.dark .brand-rust {
+  color: #ffffff;
+}
+
+.brand-cheats {
+  color: #ffffff;
+}
+
+html.dark .brand-cheats {
   color: var(--primary-accent);
 }
 
