@@ -4,7 +4,7 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/dayz-screenshots/dayz-player-esp.webp';
+export const DEFAULT_OG_IMAGE = '/images/dayz-screenshots/dayz-house-player-esp.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -59,8 +59,8 @@ export function cheatMetaDescription(text: string): string {
   return `DayZ cheats guide: ${trimmed}`;
 }
 
-export const DEFAULT_OG_IMAGE_WIDTH = 1202;
-export const DEFAULT_OG_IMAGE_HEIGHT = 676;
+export const DEFAULT_OG_IMAGE_WIDTH = 1035;
+export const DEFAULT_OG_IMAGE_HEIGHT = 582;
 
 export const RSS_FEED_PATH = '/rss.xml';
 
