@@ -14,8 +14,8 @@ export const en: Translations = {
   },
   nav: [
     { href: productBase, label: 'Products' },
-    { href: '/blog/', label: 'Guides' },
-    { href: '/forum/', label: 'Community' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/forum/', label: 'Forum' },
     { href: '/faq/', label: 'FAQ' },
     { href: '/support/', label: 'Support' },
   ],
