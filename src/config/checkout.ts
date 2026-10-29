@@ -10,6 +10,9 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 /** URL slug for legacy /go/[slug]/ checkout redirect paths. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
   dayz: 'dayz',
+  hwidSpoofer: 'hwid-spoofer',
+  gameAccounts: 'game-accounts',
+  skinChanger: 'skin-changer',
 };
 
 export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
@@ -26,6 +29,9 @@ export const PRIMARY_CHECKOUT_PATH = checkoutPath('dayz');
 
 /** Map internal product slugs to checkout destinations. */
 export function checkoutForSlug(slug: string): string {
+  if (slug === 'hwid-spoofer') return checkoutPath('hwidSpoofer');
+  if (slug === 'game-accounts') return checkoutPath('gameAccounts');
+  if (slug === 'skin-changer') return checkoutPath('skinChanger');
   return checkoutPath('dayz');
 }
 
@@ -50,6 +56,15 @@ export function resolveCheckoutHref(href: string): string {
   // Legacy / encoded product paths → internal checkout
   if (href.includes('%2Fproducts%2Fdayz') || href.includes('/products/dayz')) {
     return checkoutPath('dayz');
+  }
+  if (href.includes('%2Fhwid-spoofer') || href.includes('/hwid-spoofer')) {
+    return checkoutPath('hwidSpoofer');
+  }
+  if (href.includes('%2Fgame-accounts') || href.includes('/game-accounts')) {
+    return checkoutPath('gameAccounts');
+  }
+  if (href.includes('%2Fskin-changer') || href.includes('/skin-changer')) {
+    return checkoutPath('skinChanger');
   }
 
   return href;

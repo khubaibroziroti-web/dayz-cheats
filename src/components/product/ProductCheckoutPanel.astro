@@ -16,7 +16,8 @@ interface Props {
 
 const { product } = Astro.props;
 const plans = getProductPlans(product.slug);
-const defaultPlan = plans[0]!;
+const defaultPlan = plans[0];
+const hasPlans = plans.length > 0;
 const isSinglePlan = plans.length === 1;
 ---
 
@@ -33,12 +34,14 @@ const isSinglePlan = plans.length === 1;
       <div class="min-w-0 text-left">
         <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Checkout</p>
         <h2 id={`checkout-${product.slug}`} class="text-base font-semibold leading-snug">
-          {isSinglePlan ? 'Purchase option' : 'Select subscription'}
+          {hasPlans ? (isSinglePlan ? 'Purchase option' : 'Select subscription') : 'View current options'}
         </h2>
       </div>
     </div>
 
     <div class="space-y-5 px-5 pb-5 pt-5">
+      {hasPlans && defaultPlan ? (
+      <>
       <RadioGroup
         defaultValue={defaultPlan.id}
         name={`plan-${product.slug}`}
@@ -81,6 +84,25 @@ const isSinglePlan = plans.length === 1;
         Buy now
         <Icon name="arrowRight" size={17} />
       </Button>
+      </>
+      ) : (
+        <>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Prices, availability and product options are shown on the external merchant page.
+          </p>
+          <Button
+            as="a"
+            href={product.buyUrl}
+            variant="primary"
+            size="lg"
+            class="w-full rounded-xl"
+            data-checkout-buy
+          >
+            View current options
+            <Icon name="arrowRight" size={17} />
+          </Button>
+        </>
+      )}
     </div>
   </div>
 </aside>

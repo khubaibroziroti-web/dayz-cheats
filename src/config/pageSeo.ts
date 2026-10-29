@@ -6,12 +6,24 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     description: 'Compare DayZ cheats for Windows PC, including player ESP, infected and item tracking, vehicle ESP, aim controls, requirements and plan prices.',
   },
   '/products/dayz-cheats/': {
-    title: 'DayZ Cheats Plans, Features & Requirements',
-    description: 'Review the listed DayZ cheat features, Windows requirements, $35 monthly plan and $150 lifetime option before partner checkout.',
+    title: 'DayZ Products | Cheats, Spoofer, Accounts & Skins',
+    description: 'Compare DayZ cheats, HWID spoofer, game-account and skin-changer categories, then continue to the matching external partner listing.',
   },
   '/products/dayz-cheats/elite/': {
     title: 'DayZ Cheats Product Details | ESP & Aimbot',
     description: 'Explore the published DayZ player ESP, infected ESP, vehicle and item tracking, aimbot controls, system requirements and access plans.',
+  },
+  '/products/dayz-cheats/hwid-spoofer/': {
+    title: 'DayZ HWID Spoofer | Product Information',
+    description: 'Review the supplied HWID spoofer category, compatibility considerations, setup information and external merchant destination.',
+  },
+  '/products/dayz-cheats/game-accounts/': {
+    title: 'DayZ Game Accounts | Marketplace Information',
+    description: 'Browse the DayZ game-account category and review platform, region, listing, delivery and merchant information before purchase.',
+  },
+  '/products/dayz-cheats/skin-changer/': {
+    title: 'DayZ Skin Changer | Cosmetic Product Information',
+    description: 'Review the DayZ skin-changer category, cosmetic options, compatibility considerations and external partner listing.',
   },
   '/blog/': {
     title: 'DayZ Cheats Guides | Features, Plans & Requirements',

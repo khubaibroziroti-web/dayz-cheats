@@ -77,6 +77,7 @@ export const productCategoryIcons: Record<string, IconName> = {
   'DMA hardware': 'dmaHardware',
   'System utility': 'systemUtility',
   'Account recovery': 'accountRecovery',
+  'Game accounts': 'accountRecovery',
   Cosmetic: 'cosmetic',
 };
 

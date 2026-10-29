@@ -1,5 +1,8 @@
 export declare const CHECKOUT_URLS: {
   readonly dayz: string;
+  readonly hwidSpoofer: string;
+  readonly gameAccounts: string;
+  readonly skinChanger: string;
 };
 
 export declare const CHECKOUT_PATH_REDIRECTS: ReadonlyMap<string, string>;

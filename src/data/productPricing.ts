@@ -12,7 +12,9 @@ const dayzPlans: ProductPlan[] = [
   { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'Unlimited-duration access' },
 ];
 
-export function getProductPlans(_productSlug: string): ProductPlan[] { return dayzPlans; }
+export function getProductPlans(productSlug: string): ProductPlan[] {
+  return productSlug === 'elite' ? dayzPlans : [];
+}
 export function formatPlanPrice(usd: number): string { return `$${usd}`; }
 export function checkoutUrlWithPlan(baseUrl: string, planId: ProductPlanId): string {
   const separator = baseUrl.includes('?') ? '&' : '?';

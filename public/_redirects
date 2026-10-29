@@ -1,6 +1,12 @@
 # Affiliate checkout redirect
 /go/dayz  https://levocheats.com/go/KHUBAIB?to=%2Fdayz-cheats  302
 /go/dayz/  https://levocheats.com/go/KHUBAIB?to=%2Fdayz-cheats  302
+/go/hwid-spoofer  https://levocheats.com/go/KHUBAIB?to=%2Fhwid-spoofer  302
+/go/hwid-spoofer/  https://levocheats.com/go/KHUBAIB?to=%2Fhwid-spoofer  302
+/go/game-accounts  https://levocheats.com/go/KHUBAIB?to=%2Fgame-accounts  302
+/go/game-accounts/  https://levocheats.com/go/KHUBAIB?to=%2Fgame-accounts  302
+/go/skin-changer  https://levocheats.com/go/KHUBAIB?to=%2Fskin-changer-cheats  302
+/go/skin-changer/  https://levocheats.com/go/KHUBAIB?to=%2Fskin-changer-cheats  302
 
 # Legacy and convenience paths
 /cheats  /products/dayz-cheats/  301

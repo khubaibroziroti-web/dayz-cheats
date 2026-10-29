@@ -117,14 +117,26 @@ export const en: Translations = {
     }],
   },
   products: {
-    eyebrow: 'Product', title: 'DayZ cheats and access plans',
-    subtitle: 'Review the product details and choose monthly or lifetime access through the checkout partner.',
-    viewAll: 'View product', get: 'View', explore: 'Explore',
-    items: [{
-      badge: 'Available through partner', category: 'Windows PC', title: 'DayZ Cheats', subtitle: 'ESP, aimbot and configuration tools',
-      desc: 'A single DayZ product listing with published monthly and lifetime duration options.',
-      features: ['Monthly: $35', 'Lifetime: $150', 'Windows 10/11', 'English menu'], more: 20, href: `${productBase}elite/`,
-    }],
+    eyebrow: 'Shop', title: 'Buy DayZ products',
+    subtitle: 'DayZ cheats, HWID spoofer, game accounts and skin changer categories — choose the product you need.',
+    viewAll: 'View all products', get: 'Buy', explore: 'Explore',
+    items: [
+      {
+        badge: 'Available', category: 'System utility', title: 'DayZ HWID Spoofer', subtitle: 'System and compatibility utility',
+        desc: 'Review the supplied HWID spoofer category and current merchant requirements.',
+        features: ['Spoofer and cleanup tools', 'System profile options', 'Compatibility review', 'Post-setup verification'], more: 9, href: `${productBase}hwid-spoofer/`,
+      },
+      {
+        badge: 'Available', category: 'Game accounts', title: 'DayZ Game Accounts', subtitle: 'External account marketplace',
+        desc: 'Browse account listings and confirm platform, region, included access and merchant terms.',
+        features: ['Account marketplace', 'Listing details', 'Platform and region checks', 'External fulfillment'], more: 6, href: `${productBase}game-accounts/`,
+      },
+      {
+        badge: 'Available', category: 'Cosmetic', title: 'DayZ Skin Changer', subtitle: 'Cosmetic customization category',
+        desc: 'Review supported cosmetic controls and current compatibility on the partner listing.',
+        features: ['Cosmetic customization', 'Appearance presets', 'Supported-item review', 'Configuration options'], more: 7, href: `${productBase}skin-changer/`,
+      },
+    ],
   },
   blog: {
     eyebrow: 'DayZ guides', title: 'DayZ product guides', subtitle: 'Plain-language explanations of features, requirements, plans and pre-purchase checks.',

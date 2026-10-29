@@ -47,16 +47,6 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    if (url.pathname === '/google48da28acfb8553d6.html') {
-      return new Response('google-site-verification: google48da28acfb8553d6.html', {
-        status: 200,
-        headers: {
-          'content-type': 'text/html; charset=utf-8',
-          'cache-control': 'public, max-age=3600',
-        },
-      });
-    }
-
     const response = await env.ASSETS.fetch(request);
     const contentType = response.headers.get('content-type') ?? '';
 
