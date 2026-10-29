@@ -1,45 +1,109 @@
 ---
+import '../../styles/forum.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/icons/Icon.astro';
+import { forumCategories, forumPosts } from '../../data/forum';
 import { resolvePageSeo } from '../../config/seo';
+import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
 
 const seo = resolvePageSeo('/forum/');
-const resources = [
-  { icon: 'navProducts', title: 'Product details', desc: 'Review the complete feature list, requirements and access durations.', href: '/products/dayz-cheats/elite/', label: 'View product' },
-  { icon: 'navBlog', title: 'Feature guides', desc: 'Read plain-language guides to ESP groups, requirements and pricing.', href: '/blog/', label: 'Read guides' },
-  { icon: 'navFaq', title: 'Questions and answers', desc: 'Find answers about compatibility, plans, affiliate checkout and risk.', href: '/faq/', label: 'Open FAQ' },
-  { icon: 'navSupport', title: 'Support resources', desc: 'Find pre-purchase help and external merchant guidance.', href: '/support/', label: 'Get support' },
-];
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum/' }];
+const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 ---
 
-<BaseLayout title={seo.title} description={seo.description}>
-  <section class="border-b border-border bg-background pb-16 pt-28 sm:pt-32">
+<BaseLayout title={seo.title} description={seo.description} jsonLd={[
+  collectionPageSchema({ name: 'DayZ Cheats Community Forum', description: seo.description, url: '/forum/' }),
+  breadcrumbSchema(breadcrumbs),
+]}>
+  <section class="forum-page py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
-      <Breadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'Community', path: '/forum/' }]} />
-      <div class="mx-auto mt-10 max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Community resources</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">DayZ product community hub</h1>
-        <p class="mt-5 text-base leading-7 text-muted-foreground">Browse verified product information, buying guides, frequently asked questions and support resources without invented community posts or statistics.</p>
+      <Breadcrumbs items={breadcrumbs} />
+      <header class="forum-hero">
+        <div>
+          <p class="section-header__eyebrow">DayZ community forum</p>
+          <h1>DayZ Cheats Forum</h1>
+          <p class="forum-hero__copy">Curated answers about features, requirements, product updates, plans, and pre-purchase checks.</p>
+        </div>
+        <a class="forum-create" href="/blog/"><Icon name="messageCircle" size={17} /> Explore the guides</a>
+      </header>
+
+      <div class="forum-layout">
+        <main class="forum-main" aria-label="Community discussions">
+          <div class="forum-toolbar">
+            <div class="forum-sort" role="group" aria-label="Discussion sorting">
+              <button class="is-active" type="button" data-forum-sort="popular" aria-pressed="true">Popular</button>
+              <button type="button" data-forum-sort="latest" aria-pressed="false">Latest</button>
+              <button type="button" data-forum-sort="top" aria-pressed="false">Most discussed</button>
+            </div>
+            <label class="forum-search"><Icon name="search" size={16} /><input type="search" placeholder="Search discussions" aria-label="Search discussions" data-forum-search /><span class="sr-only" data-forum-count>{forumPosts.length} discussions</span></label>
+          </div>
+
+          <div class="forum-category-filters" role="group" aria-label="Filter discussions by topic">
+            <button type="button" class="is-active" data-forum-filter="all" aria-pressed="true"><Icon name="layers" size={14} /> All topics</button>
+            {forumCategories.map((category) => <button type="button" data-forum-filter={categoryKey(category.name)} aria-pressed="false"><Icon name={category.icon} size={14} /> {category.name}</button>)}
+          </div>
+          <p class="forum-results-count" data-forum-visible-count>{forumPosts.length} discussions</p>
+
+          <div class="forum-post-list" aria-live="polite">
+            {forumPosts.map((post, index) => (
+              <article class="forum-post-card" data-forum-card data-post-slug={post.slug} data-upvotes={post.upvotes} data-category={categoryKey(post.category)} data-comments={post.commentsCount} data-published={new Date(post.date).getTime()} data-order={index}>
+                <div class="forum-vote" aria-label="Discussion voting"><button class="forum-vote__up" type="button" data-vote-up aria-label="Upvote this discussion"><Icon name="chevronDown" size={16} /></button><strong data-vote-count>{post.upvotes}</strong><button type="button" disabled aria-label="Downvoting is unavailable"><Icon name="chevronDown" size={16} /></button></div>
+                <div class="forum-post-card__body">
+                  <div class="forum-post-meta"><span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span><a href="#communities" class="forum-community-name">d/{post.category.toLowerCase().replaceAll(' ', '')}</a><span>·</span><span><Icon name="userRound" size={13} /> {post.author}</span><span>{post.age}</span></div>
+                  <a class="forum-post-title" href={`/forum/${post.slug}/`}>{post.title}</a>
+                  <p class="forum-post-excerpt">{post.excerpt}</p>
+                  {post.sourceTitle && <p class="forum-source">Related guide: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
+                  <div class="forum-post-actions"><span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span><a href={`/forum/${post.slug}/`}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a><a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Read discussion</a></div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p class="forum-empty" data-forum-empty hidden>No discussions match. Try another search or topic.</p>
+        </main>
+
+        <aside class="forum-sidebar">
+          <section class="forum-side-card forum-about" id="community-guidelines"><div class="forum-side-card__banner"></div><div class="forum-about__content"><div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/dayz-logo-512.webp" alt="DayZ Cheats community logo" width="34" height="34" /></span><h2>DayZ Cheats Community</h2></div><p>A curated information hub for DayZ product features, requirements, buying questions, and current guides.</p><div class="forum-stats"><span><b>{forumPosts.length}</b> discussions</span><span><b>{forumCategories.length}</b> topics</span></div><a class="forum-join" href="/blog/">Explore all guides</a></div></section>
+          <section class="forum-side-card" id="communities"><h2 class="forum-side-heading">Communities</h2><ul class="forum-community-list">{forumCategories.map((category) => <li><a href={`/forum/?category=${categoryKey(category.name)}`}><span class={`forum-community-avatar tone-${category.tone}`} aria-hidden="true"><Icon name={category.icon} size={15} /></span><span><b>{category.name}</b><small>Browse related Q&amp;A</small></span><Icon name="chevronRight" size={15} /></a></li>)}</ul><a class="forum-text-link" href="#communities">Browse all communities <Icon name="arrowRight" size={14} /></a></section>
+          <section class="forum-side-card forum-rules"><h2 class="forum-side-heading">Community guidelines</h2><ol><li>Keep information clear and constructive</li><li>Stay on topic and add context</li><li>Do not make unsupported safety claims</li></ol><a href="#community-guidelines">Read the guidelines <Icon name="arrowRight" size={14} /></a></section>
+          <p class="forum-sidebar-foot">Curated Q&amp;A · Privacy · Terms<br />© {new Date().getFullYear()} DayZ Cheats Community</p>
+        </aside>
       </div>
     </div>
   </section>
 
-  <section class="bg-background py-16 sm:py-20" aria-labelledby="community-resources">
-    <div class="mx-auto max-w-6xl px-5">
-      <h2 id="community-resources" class="sr-only">Community resources</h2>
-      <div class="grid gap-5 md:grid-cols-2">
-        {resources.map((resource) => (
-          <article class="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <span class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary"><Icon name={resource.icon} size={22} /></span>
-            <h3 class="mt-5 text-xl font-bold text-foreground">{resource.title}</h3>
-            <p class="mt-2 flex-1 leading-7 text-muted-foreground">{resource.desc}</p>
-            <a class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl border border-border px-4 py-2 font-semibold text-foreground transition hover:border-primary hover:text-primary" href={resource.href}>
-              {resource.label}<Icon name="arrowRight" size={17} />
-            </a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <script>
+    const cards = [...document.querySelectorAll<HTMLElement>('[data-forum-card]')];
+    const sortButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-forum-sort]')];
+    const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-forum-filter]')];
+    const searchInput = document.querySelector<HTMLInputElement>('[data-forum-search]');
+    const list = document.querySelector<HTMLElement>('.forum-post-list');
+    const countStatus = document.querySelector<HTMLElement>('[data-forum-count]');
+    const visibleCount = document.querySelector<HTMLElement>('[data-forum-visible-count]');
+    const emptyState = document.querySelector<HTMLElement>('[data-forum-empty]');
+    let activeFilter = new URLSearchParams(window.location.search).get('category') ?? 'all';
+    function updateForum() {
+      const sort = sortButtons.find((button) => button.getAttribute('aria-pressed') === 'true')?.dataset.forumSort ?? 'popular';
+      const query = searchInput?.value.trim().toLocaleLowerCase() ?? '';
+      const ordered = [...cards].sort((a, b) => sort === 'latest' ? Number(b.dataset.published) - Number(a.dataset.published) : sort === 'top' ? Number(b.dataset.comments) - Number(a.dataset.comments) : Number(a.dataset.order) - Number(b.dataset.order));
+      const matching = ordered.filter((card) => (activeFilter === 'all' || card.dataset.category === activeFilter) && (!query || card.textContent?.toLocaleLowerCase().includes(query)));
+      const visibleCards = new Set(matching);
+      ordered.forEach((card) => { card.hidden = !visibleCards.has(card); list?.append(card); });
+      const label = `${matching.length} ${matching.length === 1 ? 'discussion' : 'discussions'}`;
+      if (countStatus) countStatus.textContent = label;
+      if (visibleCount) visibleCount.textContent = label;
+      if (emptyState) emptyState.hidden = matching.length > 0;
+    }
+    sortButtons.forEach((button) => button.addEventListener('click', () => { sortButtons.forEach((item) => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); }); updateForum(); }));
+    filterButtons.forEach((button) => button.addEventListener('click', () => { activeFilter = button.dataset.forumFilter ?? 'all'; filterButtons.forEach((item) => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); }); updateForum(); }));
+    searchInput?.addEventListener('input', updateForum);
+    const initialFilter = filterButtons.find((button) => button.dataset.forumFilter === activeFilter);
+    if (initialFilter) filterButtons.forEach((item) => { const active = item === initialFilter; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); });
+    else activeFilter = 'all';
+    updateForum();
+  </script>
+  <script>
+    import { initForumVotes } from '../../scripts/forum-votes.ts';
+    initForumVotes();
+  </script>
 </BaseLayout>

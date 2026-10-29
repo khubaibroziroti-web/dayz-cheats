@@ -255,3 +255,16 @@
 .forum-results-count { margin:0 0 .45rem; color:var(--muted-foreground); font-size:.68rem; }
 @media(max-width:700px) { .forum-toolbar { flex-wrap:wrap; gap:.55rem; }.forum-search { order:2; width:100%; }.forum-sort { max-width:100%; overflow-x:auto; }.forum-sort button { flex:0 0 auto; white-space:nowrap; } }
 @media(max-width:520px) { .forum-sort button { font-size:.72rem; padding-inline:.58rem; } }
+
+/* Keep mobile forum controls and cards inside the viewport. */
+.forum-page,
+.forum-page * { box-sizing:border-box; }
+.forum-main,
+.forum-post-list,
+.forum-post-card,
+.forum-detail-card { max-width:100%; }
+.forum-post-list,
+.forum-post-card,
+.forum-detail-card { overflow:hidden; }
+.forum-post-meta { min-width:0; }
+.forum-community-name { overflow-wrap:anywhere; }

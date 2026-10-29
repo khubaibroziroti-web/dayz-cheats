@@ -30,8 +30,8 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     description: 'Read straightforward DayZ product guides covering feature groups, Windows requirements, monthly and lifetime plans, and purchase checks.',
   },
   '/forum/': {
-    title: 'DayZ Cheats Community Hub | Guides & Help',
-    description: 'Browse DayZ product resources, feature guides, requirements, FAQs and support information in one community hub.',
+    title: 'DayZ Cheats Forum | ESP, Setup & Product Help',
+    description: 'Browse curated DayZ cheats discussions covering ESP features, aim controls, Windows requirements, product updates, plans and pre-purchase checks.',
   },
   '/faq/': {
     title: 'DayZ Cheats FAQ | Features, Plans & Compatibility',
