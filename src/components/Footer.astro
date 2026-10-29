@@ -26,6 +26,31 @@ const shareLinks = [
 ];
 ---
 
+<section id="site-banner" class="relative isolate min-h-48 overflow-hidden border-t border-primary/30 bg-[#07111f] sm:min-h-56" aria-label="DayZ Cheats website information">
+  <picture class="absolute inset-0 -z-20 overflow-hidden">
+    <source type="image/avif" srcset="/images/dayz-footer-banner-960.avif 960w, /images/dayz-footer-banner-1440.avif 1440w" sizes="100vw" />
+    <source type="image/webp" srcset="/images/dayz-footer-banner-960.webp 960w, /images/dayz-footer-banner-1440.webp 1440w" sizes="100vw" />
+    <img
+      src="/images/dayz-footer-banner-1440.webp"
+      alt="Blue tactical operators framing the DayZ Cheats footer banner"
+      width="1440"
+      height="480"
+      loading="lazy"
+      decoding="async"
+      class="absolute left-1/2 top-1/2 h-[700px] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 object-center"
+    />
+  </picture>
+  <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(4,10,20,.28),rgba(4,12,28,.08)_50%,rgba(4,10,20,.28)),linear-gradient(180deg,rgba(4,10,20,.08),rgba(4,10,20,.42))]"></div>
+  <div class="mx-auto flex min-h-48 max-w-6xl flex-col items-center justify-center px-5 py-10 text-center sm:min-h-56">
+    <a href="/" class="inline-flex items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-2.5 backdrop-blur-sm" aria-label={t.ui.homeAria}>
+      <img src="/dayz-logo-64.webp" alt="" width="38" height="38" class="rounded-lg" />
+      <span class="font-[family-name:var(--font-heading)] text-2xl font-bold text-white"><span>DayZ</span><span class="text-primary">Cheats</span></span>
+    </a>
+    <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-slate-200 sm:text-sm">DayZ product information · Features · Setup guides</p>
+    <p class="mt-2 text-sm text-slate-400">getdayzcheats.net</p>
+  </div>
+</section>
+
 <footer class="border-t border-border bg-muted/30 py-16">
   <div class="mx-auto max-w-6xl px-5">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
